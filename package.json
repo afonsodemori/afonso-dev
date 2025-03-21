@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
+    "build:cv-import": "tsx bin/cv-import.ts",
     "dev": "nuxt dev",
     "dev:public": "nuxt dev --public",
     "generate": "nuxt generate",
@@ -25,9 +26,11 @@
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.2.0",
+    "@types/node": "^22.13.11",
     "eslint": "^9.22.0",
     "nitro-cloudflare-dev": "^0.2.2",
     "prettier": "3.5.3",
+    "tsx": "^4.19.3",
     "typescript": "^5.8.2",
     "wrangler": "^4.3.0"
   }
