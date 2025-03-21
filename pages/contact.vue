@@ -1,6 +1,8 @@
 <script setup lang="ts">
+  const { t } = useI18n();
+
   useHead({
-    title: 'Contact',
+    title: t('head.contact.title'),
   });
 </script>
 

@@ -12,5 +12,16 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['nitro-cloudflare-dev', '@nuxt/eslint'],
+  modules: ['nitro-cloudflare-dev', '@nuxt/eslint', '@nuxtjs/i18n'],
+
+  i18n: {
+    locales: [
+      { code: 'en', language: 'en-US', files: ['en-US.yaml', 'generated/en-curriculum.yaml'] },
+      { code: 'es', language: 'es-ES', files: ['es-ES.yaml', 'generated/es-curriculum.yaml'] },
+      { code: 'pt', language: 'pt-BR', files: ['pt-BR.yaml', 'generated/pt-curriculum.yaml'] },
+    ],
+    defaultLocale: 'en',
+    strategy: 'prefix',
+    compilation: { strictMessage: false, escapeHtml: false },
+  },
 });
