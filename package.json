@@ -21,7 +21,6 @@
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250320.0",
     "@nuxt/eslint": "^1.2.0",
     "eslint": "^9.22.0",
     "nitro-cloudflare-dev": "^0.2.2",
