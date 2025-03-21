@@ -8,7 +8,6 @@
 
 <template>
   <div>
-    <div>Page: curriculum</div>
     <!-- eslint-disable-next-line vue/no-v-html -->
     <div v-html="$t('curriculum.html')" />
   </div>

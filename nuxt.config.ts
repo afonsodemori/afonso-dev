@@ -3,6 +3,13 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
 
+  runtimeConfig: {
+    public: {
+      nodeEnv: process.env.NODE_ENV,
+      recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
+    },
+  },
+
   nitro: {
     preset: 'cloudflare-pages',
 

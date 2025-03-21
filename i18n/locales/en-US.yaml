@@ -1,18 +1,40 @@
 head:
   home:
-    title: 'Afonso de Mori A. Silva - Software Engineer - Spain'
-    description: "Afonso de Mori Ayres da Silva's personal profile. Back-end web developer PHP focused."
-    keywords: 'afonso, mori, ayres, silva, demori, afonsodemori, afonsosilva89, web developer, php, typescript'
+    title: Afonso de Mori A. Silva - Software Engineer - Spain
+    description: Afonso de Mori Ayres da Silva's personal profile. Back-end web developer PHP focused.
+    keywords: afonso, mori, ayres, silva, demori, afonsodemori, afonsosilva89, web developer, php, typescript
   curriculum:
     title: 'Resume: Afonso de Mori - Software Engineer - Spain'
-    description: 'Learn about the professional career of Afonso de Mori, a programmer with more than 16 years of experience.'
-    keywords: 'curriculum, resume, programmer, afonso, mori, ayres, silva, demori, afonsodemori, afonsosilva89'
+    description: Learn about the professional career of Afonso de Mori, a programmer with more than 16 years of experience.
+    keywords: curriculum, resume, programmer, afonso, mori, ayres, silva, demori, afonsodemori, afonsosilva89
   contact:
-    title: "Let's talk! - Afonso de Mori"
-    description: 'Get in touch with Afonso de Mori, Software Engineer in Spain.'
-    keywords: 'afonso, mori, ayres, silva, contact, afonsodemori'
+    title: Let's talk! - Afonso de Mori
+    description: Get in touch with Afonso de Mori, Software Engineer in Spain.
+    keywords: afonso, mori, ayres, silva, contact, afonsodemori
 
 nav:
-  home: 'Home'
-  curriculum: 'Curriculum'
-  contact: 'Contact'
+  home: Home
+  curriculum: Curriculum
+  contact: Contact
+
+home:
+  title: Software Developer
+  bio: Software Engineer with over 16 years of experience in backend development. Specialized in PHP, Symfony, MySQL, and Doctrine. I have knowledge in DevOps and frontend, and I adapt easily to different environments and projects. Committed to continuous learning, innovation, and teamwork.
+
+contact:
+  form:
+    name: Name
+    email: Email
+    subject: Subject
+    message: Message
+    sample:
+      name: John Doe
+      email: john.doe.ok{'@'}example.com
+      subject: Contact via form on afonso.dev
+      message: "Hi. How are you?\n\nThis is filled due to development mode.\n\nTest will succeed if email has OK, and fail if it has KO.\n\nBest regards."
+    submit: Send message
+    submitting: Sending...
+    missing_captcha: Missing reCAPTCHA token.
+    success: Your message was sent successfully!
+    failure: Failed to submit. Please try again.
+    unexpected: An error occurred. Please try again.
