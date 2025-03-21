@@ -3,8 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "build:cv-import": "tsx bin/cv-import.ts",
+    "prebuild": "bash bin/prebuild.sh",
+    "build": "npm run prebuild && nuxt build",
+    "build:curriculum": "tsx bin/cv-import.ts && bash bin/cv-html.sh",
     "dev": "nuxt dev",
     "dev:public": "nuxt dev --public",
     "generate": "nuxt generate",
