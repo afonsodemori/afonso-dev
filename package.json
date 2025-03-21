@@ -14,8 +14,8 @@
     "cf-typegen": "wrangler types",
     "format:check": "prettier --check .",
     "format": "prettier --write .",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint . --ignore-pattern 'worker-configuration.d.ts'",
+    "lint:fix": "eslint . --fix --ignore-pattern 'worker-configuration.d.ts'"
   },
   "dependencies": {
     "nuxt": "^3.16.1",
