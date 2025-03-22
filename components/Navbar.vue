@@ -1,27 +1,72 @@
 <script setup lang="ts">
-  const { locale, setLocale } = useI18n();
+  const { locale, t, setLocale } = useI18n();
   const localePath = useLocalePath();
+
+  const itemsComputed = computed(() => [
+    [
+      {
+        label: t('nav.home'),
+        to: localePath('index'),
+        icon: 'i-lucide-home',
+      },
+      {
+        label: t('nav.curriculum'),
+        to: localePath('curriculum'),
+        icon: 'i-lucide-briefcase-business',
+      },
+      {
+        label: t('nav.contact'),
+        to: localePath('contact'),
+        icon: 'i-lucide-mail',
+      },
+    ],
+    [
+      {
+        label: 'GitHub',
+        icon: 'i-simple-icons-github',
+        to: '/github',
+        target: '_blank',
+      },
+      {
+        label: 'LinkedIn',
+        icon: 'i-simple-icons-linkedin',
+        to: '/linkedin',
+        target: '_blank',
+      },
+      {
+        label: locale.value.toUpperCase(),
+        icon: 'i-lucide-earth',
+        children: [
+          {
+            label: 'English',
+            active: locale.value === 'en',
+            onSelect: () => setLocale('en'),
+          },
+          {
+            label: 'Español',
+            active: locale.value === 'es',
+            onSelect: () => setLocale('es'),
+          },
+          {
+            label: 'Português',
+            active: locale.value === 'pt',
+            onSelect: () => setLocale('pt'),
+          },
+        ],
+      },
+    ],
+  ]);
 </script>
 
 <template>
-  <div>
-    <button v-if="locale !== 'en'" title="See in English" @click="setLocale('en')">English</button>
-    <button v-if="locale !== 'es'" title="Ver en español" @click="setLocale('es')">Español</button>
-    <button v-if="locale !== 'pt'" title="Ver em Português" @click="setLocale('pt')">
-      Português
-    </button>
-  </div>
-  <ul>
-    <li>
-      <NuxtLink :to="localePath('index')">{{ $t('nav.home') }}</NuxtLink>
-    </li>
-    <li>
-      <NuxtLink :to="localePath('curriculum')">{{ $t('nav.curriculum') }}</NuxtLink>
-    </li>
-    <li>
-      <NuxtLink :to="localePath('contact')">{{ $t('nav.contact') }}</NuxtLink>
-    </li>
-  </ul>
+  <UNavigationMenu
+    highlight
+    highlight-color="primary"
+    orientation="horizontal"
+    content-orientation="vertical"
+    :items="itemsComputed"
+    class="data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48"
+  />
 </template>
 
 <style scoped></style>

@@ -16,7 +16,11 @@
 <template>
   <div>
     <Navbar />
-    <slot />
+    <UContainer class="p-10" style="max-width: 900px; min-height: 85vh">
+      <slot />
+    </UContainer>
+    <USeparator />
+    <div class="m-5 text-center text-sm text-neutral-500">Afonso de Mori - afonso.dev</div>
   </div>
 </template>
 
