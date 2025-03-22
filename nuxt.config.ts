@@ -19,7 +19,9 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['nitro-cloudflare-dev', '@nuxt/eslint', '@nuxtjs/i18n'],
+  modules: ['nitro-cloudflare-dev', '@nuxt/eslint', '@nuxtjs/i18n', '@nuxt/ui'],
+
+  // css: ['~/assets/base.css'],
 
   i18n: {
     locales: [
