@@ -42,7 +42,8 @@ for input_md in "${input[@]}"; do
   {
     echo "curriculum:"
     echo "  html: |"
-    sed "s/@/{'@'}/g; s/|/{'|'}/g; s/^/    /" "$output_html"  # Replace @, | and indent lines
+    sed "s/@/{'@'}/g; s/|/{'|'}/g; s/^/    /" "$output_html" | # Replace @, | and indent lines
+    sed 's/<img /<span class="contact-separator"><\/span><img /ig'
   } > "$output_yaml"
 
   rm "$input_md"

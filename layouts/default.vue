@@ -17,9 +17,8 @@
 <template>
   <div>
     <Navbar />
-    <UContainer class="p-10" style="max-width: 900px; min-height: 85vh">
-      <slot />
-    </UContainer>
+    <Header class="mb-10" />
+    <slot />
     <USeparator />
     <div class="m-5 text-center text-sm text-neutral-500">
       <p>Afonso de Mori - {{ $t('home.title') }}</p>

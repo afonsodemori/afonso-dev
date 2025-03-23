@@ -7,11 +7,9 @@
 </script>
 
 <template>
-  <div>
-    <h1>Afonso de Mori</h1>
-    <h2>{{ $t('home.title') }}</h2>
-    <p>{{ $t('home.bio') }}</p>
-  </div>
+  <UContainer style="min-height: 60vh">
+    <p class="text-center text-2xl font-light">{{ $t('home.bio') }}</p>
+  </UContainer>
 </template>
 
 <style scoped></style>

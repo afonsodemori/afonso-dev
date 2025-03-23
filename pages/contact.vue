@@ -74,33 +74,35 @@
 </script>
 
 <template>
-  <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
-    <UFormField :label="$t('contact.form.name')" name="name">
-      <UInput v-model="state.name" :disabled="loading" size="xl" class="w-full" />
-    </UFormField>
+  <UContainer class="pb-10" style="min-height: 60vh">
+    <UForm :schema="schema" :state="state" class="space-y-4 max-w-180 m-auto" @submit="onSubmit">
+      <UFormField :label="$t('contact.form.name')" name="name">
+        <UInput v-model="state.name" :disabled="loading" size="xl" class="w-full" />
+      </UFormField>
 
-    <UFormField :label="$t('contact.form.email')" name="email">
-      <UInput v-model="state.email" :disabled="loading" size="xl" class="w-full" />
-    </UFormField>
+      <UFormField :label="$t('contact.form.email')" name="email">
+        <UInput v-model="state.email" :disabled="loading" size="xl" class="w-full" />
+      </UFormField>
 
-    <UFormField :label="$t('contact.form.subject')" name="subject">
-      <UInput v-model="state.subject" :disabled="loading" size="xl" class="w-full" />
-    </UFormField>
+      <UFormField :label="$t('contact.form.subject')" name="subject">
+        <UInput v-model="state.subject" :disabled="loading" size="xl" class="w-full" />
+      </UFormField>
 
-    <UFormField :label="$t('contact.form.message')" name="message">
-      <UTextarea
-        v-model="state.message"
-        :disabled="loading"
-        size="xl"
-        :rows="5"
-        :maxrows="15"
-        autoresize
-        class="w-full"
-      />
-    </UFormField>
+      <UFormField :label="$t('contact.form.message')" name="message">
+        <UTextarea
+          v-model="state.message"
+          :disabled="loading"
+          size="xl"
+          :rows="10"
+          :maxrows="15"
+          autoresize
+          class="w-full"
+        />
+      </UFormField>
 
-    <UButton :disabled="loading" type="submit">
-      {{ loading ? $t('contact.form.submitting') : $t('contact.form.submit') }}
-    </UButton>
-  </UForm>
+      <UButton :disabled="loading" type="submit">
+        {{ loading ? $t('contact.form.submitting') : $t('contact.form.submit') }}
+      </UButton>
+    </UForm>
+  </UContainer>
 </template>

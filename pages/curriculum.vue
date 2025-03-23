@@ -6,7 +6,7 @@
   });
 
   onMounted(() => {
-    document.querySelectorAll<HTMLAnchorElement>('#cv-content a').forEach((a, index) => {
+    document.querySelectorAll<HTMLAnchorElement>('#page a').forEach((a, index) => {
       if (index === 0) {
         const contact = `/${locale.value}/contact`;
         a.href = contact;
@@ -16,20 +16,45 @@
         });
       } else if (index !== 0 && index !== 3) a.setAttribute('target', '_blank');
     });
+
+    const paragraph = document.querySelector<HTMLParagraphElement>('#page')!.lastElementChild!;
+    const em = paragraph.firstElementChild!;
+    em.textContent = em.textContent!.split(' — ')[0];
   });
 </script>
 
 <template>
-  <div>
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <div id="cv-content" v-html="$t('curriculum.html')" />
-  </div>
+  <!-- eslint-disable-next-line vue/no-v-html -->
+  <div id="page" v-html="$t('curriculum.html')" />
 </template>
 
 <style scoped>
+  :deep(.contact-separator:first-of-type) {
+    height: 2rem;
+  }
+
+  /**
+  * PAGE
+  */
+  #page {
+    transition-duration: 200ms;
+    border-radius: 1rem;
+    max-width: 980px;
+    margin: auto;
+    margin-bottom: 3rem;
+    padding: 3rem 3rem 5rem 3rem;
+    font:
+      300 1rem/1.6 Inter,
+      sans-serif;
+    color: #000;
+    text-align: justify;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
   /* Layout changers */
   :deep(a) {
-    color: blue;
+    color: #155dfc;
     text-decoration: underline;
   }
 
@@ -58,8 +83,8 @@
   }
 
   /**
-   * 
-   */
+    *
+    */
 
   :deep(h1) {
     font-size: 2rem;
@@ -96,13 +121,52 @@
   }
 
   @media screen and (prefers-color-scheme: dark) {
+    #page {
+      color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(0, 0, 0, 0.25);
+      box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.75);
+    }
+
     :deep(a) {
-      color: lightblue;
+      color: #51a2ff;
     }
 
     :deep(img) {
       opacity: 0.75;
       filter: invert(1);
+    }
+  }
+
+  @media screen and (max-width: 850px) {
+    :deep(img) {
+      margin-left: 0.75rem;
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    #page {
+      padding: 2rem 1rem;
+    }
+  }
+
+  @media screen and (max-width: 750px) {
+    #page {
+      margin: inherit 0;
+      text-align: left;
+    }
+
+    :deep(.contact-separator) {
+      display: block;
+      height: 0.75rem;
+    }
+
+    :deep(img) {
+      margin-left: 0;
+    }
+
+    :deep(ul) {
+      margin-left: 1.5rem;
+      text-align: left;
     }
   }
 </style>
