@@ -65,7 +65,7 @@
     orientation="horizontal"
     content-orientation="vertical"
     :items="itemsComputed"
-    class="hidden md:flex data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48"
+    class="hidden md:flex z-10 data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48"
   />
   <!-- TODO: Temporary lazy fix for small screens -->
   <UNavigationMenu
