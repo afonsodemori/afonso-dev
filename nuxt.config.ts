@@ -5,8 +5,8 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      nodeEnv: process.env.NODE_ENV,
-      recaptchaSiteKey: process.env.RECAPTCHA_SITE_KEY,
+      nodeEnv: '',
+      recaptchaSiteKey: '',
     },
   },
 

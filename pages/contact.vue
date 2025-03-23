@@ -1,21 +1,14 @@
 <script setup lang="ts">
+  import * as z from 'zod';
+  import type { FormSubmitEvent } from '@nuxt/ui';
   const { t } = useI18n();
   const config = useRuntimeConfig();
 
   const isDevelopment = config.public.nodeEnv === 'development';
-
   const siteKey = config.public.recaptchaSiteKey;
-  const form = ref({
-    name: '',
-    email: '',
-    subject: t('contact.form.sample.subject'),
-    message: '',
-  });
-  const loading = ref(false);
-  const success = ref();
-  const responseMessage = ref('');
 
   useHead({
+    title: t('head.contact.title'),
     script: [
       {
         src: `https://www.google.com/recaptcha/api.js?render=${siteKey}`,
@@ -25,39 +18,55 @@
     ],
   });
 
-  if (isDevelopment) {
-    form.value.name = t('contact.form.sample.name');
-    form.value.email = t('contact.form.sample.email');
-    form.value.message = t('contact.form.sample.message');
-  }
-
-  useHead({
-    title: t('head.contact.title'),
+  const schema = z.object({
+    name: z.string(),
+    email: z.string().email('Invalid email'),
+    subject: z.string(),
+    message: z.string(),
   });
 
-  async function onSubmit(event: Event) {
-    event.preventDefault();
-    loading.value = true;
-    responseMessage.value = '';
+  type Schema = z.output<typeof schema>;
+  const state = reactive<Partial<Schema>>({
+    name: isDevelopment ? t('contact.form.sample.name') : undefined,
+    email: isDevelopment ? t('contact.form.sample.email') : undefined,
+    subject: t('contact.form.sample.subject'),
+    message: isDevelopment ? t('contact.form.sample.message') : undefined,
+  });
+  const loading = ref(false);
 
+  const toast = useToast();
+  async function onSubmit(_event: FormSubmitEvent<Schema>) {
+    loading.value = true;
     try {
       const token = await grecaptcha.execute(siteKey, { action: 'submit' });
-
       const res = await fetch('/contact/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form.value, token }),
+        body: JSON.stringify({
+          name: state.name,
+          email: state.email,
+          subject: state.subject,
+          message: state.message,
+          token,
+        }),
       });
 
       const data = await res.json();
-      success.value = data.success;
       if (data.success) {
-        form.value = { name: '', email: '', subject: '', message: '' };
+        state.name = undefined;
+        state.email = undefined;
+        state.subject = undefined;
+        state.message = undefined;
       }
-      responseMessage.value = t(data.message || data.error);
-    } catch (error) {
-      console.error(error);
-      responseMessage.value = t('contact.form.unexpected');
+
+      toast.add({
+        title: t(data.message || data.error),
+        color: data.success ? 'success' : 'error',
+      });
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        toast.add({ title: t(error.message), color: 'error' });
+      }
     } finally {
       loading.value = false;
     }
@@ -65,42 +74,33 @@
 </script>
 
 <template>
-  <div>
-    <form @submit="onSubmit">
-      <div>
-        <label>
-          {{ t('contact.form.name') }}:
-          <input v-model="form.name" type="text" name="name" required />
-        </label>
-      </div>
-      <div>
-        <label>
-          {{ t('contact.form.email') }}:
-          <input v-model="form.email" type="email" name="email" required />
-        </label>
-      </div>
-      <div>
-        <label>
-          {{ t('contact.form.subject') }}:
-          <input v-model="form.subject" type="text" name="subject" required />
-        </label>
-      </div>
-      <div>
-        <label>
-          {{ t('contact.form.message') }}:
-          <textarea v-model="form.message" name="message" required />
-        </label>
-      </div>
+  <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
+    <UFormField :label="$t('contact.form.name')" name="name">
+      <UInput v-model="state.name" :disabled="loading" size="xl" class="w-full" />
+    </UFormField>
 
-      <button type="submit" :disabled="loading">
-        {{ loading ? t('contact.form.submitting') : t('contact.form.submit') }}
-      </button>
-    </form>
+    <UFormField :label="$t('contact.form.email')" name="email">
+      <UInput v-model="state.email" :disabled="loading" size="xl" class="w-full" />
+    </UFormField>
 
-    <span v-if="responseMessage" :class="success ? 'result success' : 'result error'">
-      {{ responseMessage }}
-    </span>
-  </div>
+    <UFormField :label="$t('contact.form.subject')" name="subject">
+      <UInput v-model="state.subject" :disabled="loading" size="xl" class="w-full" />
+    </UFormField>
+
+    <UFormField :label="$t('contact.form.message')" name="message">
+      <UTextarea
+        v-model="state.message"
+        :disabled="loading"
+        size="xl"
+        :rows="5"
+        :maxrows="15"
+        autoresize
+        class="w-full"
+      />
+    </UFormField>
+
+    <UButton :disabled="loading" type="submit">
+      {{ loading ? $t('contact.form.submitting') : $t('contact.form.submit') }}
+    </UButton>
+  </UForm>
 </template>
-
-<style scoped></style>

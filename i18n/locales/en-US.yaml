@@ -34,7 +34,9 @@ contact:
       message: "Hi. How are you?\n\nThis is filled due to development mode.\n\nTest will succeed if email has OK, and fail if it has KO.\n\nBest regards."
     submit: Send message
     submitting: Sending...
-    missing_captcha: Missing reCAPTCHA token.
+    captcha:
+      invalid: reCAPTCHA verification failed.
+      missing: Missing reCAPTCHA token.
     success: Your message was sent successfully!
     failure: Failed to submit. Please try again.
     unexpected: An error occurred. Please try again.

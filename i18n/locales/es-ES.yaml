@@ -34,7 +34,9 @@ contact:
       message: "Hola. ¿Cómo estás?\n\nEsto está rellenado debido al modo de desarrollo.\n\nLa prueba tendrá éxito si el correo tiene OK, y fallará si tiene KO.\n\nSaludos."
     submit: Enviar mensaje
     submitting: Enviando...
-    missing_captcha: Falta el token reCAPTCHA.
+    captcha:
+      invalid: La verificación de reCAPTCHA falló.
+      missing: Falta el token de reCAPTCHA.
     success: ¡Tu mensaje se envió con éxito!
     failure: No se pudo enviar. Por favor, inténtalo de nuevo.
     unexpected: Ocurrió un error. Por favor, inténtalo de nuevo.

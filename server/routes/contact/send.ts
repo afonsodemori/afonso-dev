@@ -16,7 +16,7 @@ export default defineEventHandler(async (event) => {
 
   if (!token) {
     setResponseStatus(event, 400);
-    return { success: false, error: 'contact.form.missing_captcha' };
+    return { success: false, error: 'contact.form.captcha.missing' };
   }
 
   try {
@@ -35,11 +35,11 @@ export default defineEventHandler(async (event) => {
 
     if (!verifyData.success) {
       setResponseStatus(event, 403);
-      return { success: false, error: 'contact.form.invalid_captcha' };
+      return { success: false, error: 'contact.form.captcha.invalid' };
     }
 
     // Send Email using Resend
-    const emailData = await $fetch('https://api.resend.com/emails', {
+    await $fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
