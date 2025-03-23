@@ -19,10 +19,10 @@
   });
 
   const schema = z.object({
-    name: z.string(),
-    email: z.string().email('Invalid email'),
-    subject: z.string(),
-    message: z.string(),
+    name: z.string().nonempty(t('contact.form.required')),
+    email: z.string().email(t('contact.form.invalid_email')),
+    subject: z.string().nonempty(t('contact.form.required')),
+    message: z.string().nonempty(t('contact.form.required')),
   });
 
   type Schema = z.output<typeof schema>;

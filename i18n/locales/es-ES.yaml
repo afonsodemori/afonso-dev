@@ -32,6 +32,8 @@ contact:
       email: juan.perez.ok{'@'}example.com
       subject: Contacto a través del formulario en afonso.dev
       message: "Hola. ¿Cómo estás?\n\nEsto está rellenado debido al modo de desarrollo.\n\nLa prueba tendrá éxito si el correo tiene OK, y fallará si tiene KO.\n\nSaludos."
+    required: Requerido
+    invalid_email: Dirección de correo electrónico no válida
     submit: Enviar mensaje
     submitting: Enviando...
     captcha:

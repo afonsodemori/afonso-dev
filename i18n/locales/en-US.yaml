@@ -32,6 +32,8 @@ contact:
       email: john.doe.ok{'@'}example.com
       subject: Contact via form on afonso.dev
       message: "Hi. How are you?\n\nThis is filled due to development mode.\n\nTest will succeed if email has OK, and fail if it has KO.\n\nBest regards."
+    required: Required
+    invalid_email: Invalid email address
     submit: Send message
     submitting: Sending...
     captcha:

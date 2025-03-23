@@ -32,6 +32,8 @@ contact:
       email: joao.silva.ok{'@'}exemplo.com
       subject: Contato via formulário em afonso.dev
       message: "Olá. Como você está?\n\nIsso está preenchido devido ao modo de desenvolvimento.\n\nO teste terá sucesso se o e-mail tiver OK, e falhará se tiver KO.\n\nAtenciosamente."
+    required: Obrigatório
+    invalid_email: Endereço de e-mail inválido
     submit: Enviar mensagem
     submitting: Enviando...
     captcha:
