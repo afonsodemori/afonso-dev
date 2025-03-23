@@ -1,5 +1,6 @@
 <script setup lang="ts">
-  const { locale } = useI18n();
+  const { locale, t } = useI18n();
+  const localePath = useLocalePath();
 
   useHead({
     htmlAttrs: {
@@ -20,7 +21,18 @@
       <slot />
     </UContainer>
     <USeparator />
-    <div class="m-5 text-center text-sm text-neutral-500">Afonso de Mori - afonso.dev</div>
+    <div class="m-5 text-center text-sm text-neutral-500">
+      <p>Afonso de Mori - {{ $t('home.title') }}</p>
+      <p>
+        <ULink :to="localePath('index')">Home</ULink>
+        |
+        <ULink to="/linkedin" target="_blank">LinkedIn</ULink>
+        |
+        <ULink to="/github" target="_blank">GitHub</ULink>
+        |
+        <ULink :to="localePath('contact')">{{ t('nav.contact') }}</ULink>
+      </p>
+    </div>
   </div>
 </template>
 

@@ -65,7 +65,16 @@
     orientation="horizontal"
     content-orientation="vertical"
     :items="itemsComputed"
-    class="data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48"
+    class="hidden md:flex data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48"
+  />
+  <!-- TODO: Temporary lazy fix for small screens -->
+  <UNavigationMenu
+    highlight
+    highlight-color="primary"
+    orientation="horizontal"
+    content-orientation="vertical"
+    :items="itemsComputed[0]"
+    class="flex md:hidden data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-full"
   />
 </template>
 
