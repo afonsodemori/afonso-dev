@@ -3,7 +3,7 @@ head:
     title: Afonso de Mori A. Silva - Engenheiro de Software - Espanha
     description: Perfil pessoal de Afonso de Mori Ayres da Silva. Desenvolvedor web back-end focado em PHP.
     keywords: afonso, mori, ayres, silva, demori, afonsodemori, afonsosilva89, desenvolvedor web, php, typescript
-  curriculum:
+  resume:
     title: 'Currículo: Afonso de Mori - Engenheiro de Software - Espanha'
     description: Conheça a trajetória profissional de Afonso de Mori, programador com mais de 16 anos de experiência.
     keywords: curriculum, currículo, programador, afonso, mori, ayres, silva, demori, afonsodemori, afonsosilva89
@@ -18,7 +18,7 @@ home:
 
 nav:
   home: Início
-  curriculum: Currículo
+  resume: Currículo
   contact: Contato
 
 contact:

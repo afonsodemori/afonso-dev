@@ -2,7 +2,7 @@
   const { t, locale } = useI18n();
 
   useHead({
-    title: t('head.curriculum.title'),
+    title: t('head.resume.title'),
   });
 
   onMounted(() => {
@@ -17,16 +17,22 @@
       } else if (index !== 0 && index !== 3) a.setAttribute('target', '_blank');
     });
 
-    const paragraph = document.querySelector<HTMLParagraphElement>('#page')!.lastElementChild!;
-    const em = paragraph.firstElementChild!;
-    em.textContent = em.textContent!.split(' — ')[0];
+    const pageElement = document.querySelector<HTMLDivElement>('#page');
+    const lastParagraph = pageElement?.lastElementChild as HTMLParagraphElement | null;
+
+    if (lastParagraph) {
+      const emphasisElement = lastParagraph.querySelector<HTMLElement>('em');
+      if (emphasisElement?.textContent) {
+        emphasisElement.textContent = emphasisElement.textContent.split(' — ')[0].trim();
+      }
+    }
   });
 </script>
 
 <template>
   <div class="containers">
     <!-- eslint-disable-next-line vue/no-v-html -->
-    <div id="page" v-html="$t('curriculum.html')" />
+    <div id="page" v-html="$t('resume.html')" />
   </div>
 </template>
 

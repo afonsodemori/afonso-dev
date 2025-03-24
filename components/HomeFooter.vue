@@ -10,8 +10,8 @@
         icon: 'i-lucide-home',
       },
       {
-        label: t('nav.curriculum'),
-        to: localePath('curriculum'),
+        label: t('nav.resume'),
+        to: localePath('resume'),
         icon: 'i-lucide-briefcase-business',
       },
       {

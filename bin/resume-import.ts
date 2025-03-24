@@ -18,7 +18,7 @@ class ImportResumes {
     // Formats to download
     this.formats = ['pdf', 'docx', 'txt', 'odt', 'md'];
     // Public output path
-    this.fileOutputPath = './public/docs/cv-{language}-afonso_de_mori.{format}';
+    this.fileOutputPath = './public/docs/resume-{language}-afonso_de_mori.{format}';
   }
 
   async execute(): Promise<void> {

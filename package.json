@@ -5,7 +5,7 @@
   "scripts": {
     "prebuild": "bash bin/prebuild.sh",
     "build": "npm run prebuild && nuxt build",
-    "build:curriculum": "tsx bin/cv-import.ts && bash bin/cv-html.sh",
+    "build:resume": "tsx bin/resume-import.ts && bash bin/resume-html.sh",
     "dev": "nuxt dev",
     "dev:public": "nuxt dev --public",
     "generate": "nuxt generate",
