@@ -26,18 +26,11 @@
 </template>
 
 <style scoped>
-  header h1,
-  header h2,
-  header .code {
-    line-height: 1.1em;
-  }
-
   header {
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     text-align: center;
   }
 
-  h1,
   a {
     color: inherit;
   }
@@ -46,25 +39,31 @@
     text-decoration: underline;
   }
 
-  .home header {
-    margin-top: 5em;
+  .code {
+    font-weight: 500;
+    font-size: 3.5rem;
+    margin-bottom: -0.5rem;
   }
 
-  header div.code {
-    font-weight: 900;
-    font-size: 3.5em;
-    font-style: normal;
-  }
-
-  header h1 {
+  h1 {
     margin: 0.1em auto;
-    font-weight: 900;
+    font-weight: 700;
     font-size: 4em;
   }
 
-  header h2 {
+  h2 {
     margin: 0;
     font-size: 1.5em;
-    font-weight: 300;
+    /* font-weight: 300; */
+  }
+
+  h1,
+  h2,
+  .code {
+    line-height: 1.1em;
+  }
+
+  .nowrap {
+    white-space: nowrap;
   }
 </style>

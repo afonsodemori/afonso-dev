@@ -17,8 +17,10 @@
 <template>
   <div>
     <Navbar />
-    <Header class="mb-10" />
-    <slot />
+    <Header />
+    <div class="my-10">
+      <slot />
+    </div>
     <USeparator />
     <div class="m-5 text-center text-sm text-neutral-500">
       <p>Afonso de Mori - {{ $t('home.title') }}</p>

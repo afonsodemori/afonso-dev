@@ -24,27 +24,22 @@
 </script>
 
 <template>
-  <!-- eslint-disable-next-line vue/no-v-html -->
-  <div id="page" v-html="$t('curriculum.html')" />
+  <div class="containers">
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <div id="page" v-html="$t('curriculum.html')" />
+  </div>
 </template>
 
 <style scoped>
-  :deep(.contact-separator:first-of-type) {
-    height: 2rem;
-  }
-
-  /**
-  * PAGE
-  */
+  /* Page */
   #page {
     transition-duration: 200ms;
     border-radius: 1rem;
     max-width: 980px;
     margin: auto;
-    margin-bottom: 3rem;
-    padding: 3rem 3rem 5rem 3rem;
+    padding: 3rem;
     font:
-      300 1rem/1.6 Inter,
+      inherit 1rem/1.6 Inter,
       sans-serif;
     color: #000;
     text-align: justify;
@@ -52,18 +47,16 @@
     background-color: rgba(255, 255, 255, 0.5);
   }
 
+  .containers {
+    transition-duration: 200ms;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
   /* Layout changers */
-  :deep(a) {
-    color: #155dfc;
-    text-decoration: underline;
-  }
-
-  :deep(a:hover) {
-    text-decoration: none;
-  }
-
   :deep(.contact-separator:first-of-type) {
     display: block;
+    height: 2rem;
   }
 
   :deep(.contact-separator) {
@@ -82,14 +75,20 @@
     height: 12px;
   }
 
-  /**
-    *
-    */
+  /* Content formatting */
+  :deep(a) {
+    color: #155dfc;
+    text-decoration: underline;
+  }
+
+  :deep(a:hover) {
+    text-decoration: none;
+  }
 
   :deep(h1) {
     font-size: 2rem;
     line-height: 1.2;
-    font-weight: 700;
+    /* font-weight: 700; */
   }
 
   :deep(h2) {
@@ -100,7 +99,7 @@
   :deep(strong),
   :deep(h2 strong),
   :deep(h3 strong) {
-    font-weight: 600;
+    /* font-weight: 600; */
   }
 
   :deep(h4) {
@@ -115,9 +114,8 @@
   :deep(em:last-of-type) {
     display: block;
     opacity: 0.5;
-    margin-top: 3rem;
+    margin-top: 5rem;
     text-align: right;
-    filter: grayscale(1);
   }
 
   @media screen and (prefers-color-scheme: dark) {
@@ -147,12 +145,20 @@
     #page {
       padding: 2rem 1rem;
     }
+
+    .containers {
+      padding: 0.25rem;
+    }
   }
 
   @media screen and (max-width: 750px) {
     #page {
       margin: inherit 0;
       text-align: left;
+    }
+
+    .containers {
+      padding: 0;
     }
 
     :deep(.contact-separator) {

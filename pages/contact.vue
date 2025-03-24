@@ -100,7 +100,7 @@
         />
       </UFormField>
 
-      <UButton :disabled="loading" type="submit">
+      <UButton :disabled="loading" type="submit" class="py-2">
         {{ loading ? $t('contact.form.submitting') : $t('contact.form.submit') }}
       </UButton>
     </UForm>

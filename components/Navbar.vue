@@ -59,23 +59,26 @@
 </script>
 
 <template>
-  <UNavigationMenu
-    highlight
-    highlight-color="primary"
-    orientation="horizontal"
-    content-orientation="vertical"
-    :items="itemsComputed"
-    class="hidden md:flex z-10 data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48"
-  />
-  <!-- TODO: Temporary lazy fix for small screens -->
-  <UNavigationMenu
-    highlight
-    highlight-color="primary"
-    orientation="horizontal"
-    content-orientation="vertical"
-    :items="itemsComputed[0]"
-    class="flex md:hidden data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-full"
-  />
-</template>
+  <div>
+    <UNavigationMenu
+      highlight
+      highlight-color="primary"
+      orientation="horizontal"
+      content-orientation="vertical"
+      :items="itemsComputed"
+      class="hidden md:flex z-10 data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48"
+    />
 
-<style scoped></style>
+    <!-- TODO: Temporary lazy fix for small screens -->
+    <UNavigationMenu
+      highlight
+      highlight-color="primary"
+      orientation="horizontal"
+      content-orientation="vertical"
+      :items="itemsComputed[0]"
+      class="flex md:hidden data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-full"
+    />
+
+    <NavbarDropdown class="flex md:hidden" />
+  </div>
+</template>
