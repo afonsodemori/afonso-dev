@@ -30,96 +30,9 @@
     }
   });
 
-  const contexMenuItems = computed<ContextMenuItem[][]>(() => [
-    [
-      {
-        label: t('resume.select_version'),
-        type: 'label',
-      },
-      {
-        label: 'PDF',
-        icon: 'mdi-file-pdf-outline',
-        to: `/docs/resume-${locale.value}-afonso_de_mori.pdf`,
-        target: '_blank',
-        kbds: ['.pdf'],
-      },
-      {
-        label: 'Microsoft Word',
-        icon: 'mdi-file-word-outline',
-        to: `/docs/resume-${locale.value}-afonso_de_mori.docx`,
-        target: '_blank',
-        kbds: ['.docx'],
-      },
-      {
-        label: 'Markdown',
-        icon: 'mdi-file-text-outline',
-        to: `/docs/resume-${locale.value}-afonso_de_mori.md`,
-        target: '_blank',
-        kbds: ['.md'],
-      },
-      {
-        label: t('resume.first.formats.txt'),
-        icon: 'mdi-file-text-outline',
-        to: `/docs/resume-${locale.value}-afonso_de_mori.txt`,
-        target: '_blank',
-        kbds: ['.txt'],
-      },
-      {
-        type: 'separator',
-      },
-      {
-        label: t('resume.first.formats.google.label'),
-        icon: 'mdi-google-drive',
-        to: `/${locale.value}/resume/e`,
-        target: '_blank',
-      },
-    ],
-    [
-      {
-        label: t('resume.print'),
-        icon: 'mdi-printer-outline',
-        onSelect: () => window.setTimeout(print, 200),
-      },
-    ],
-    [
-      {
-        label: t('resume.languages'),
-        icon: 'mdi-translate',
-        children: [
-          {
-            label: 'English',
-            type: 'checkbox',
-            checked: locale.value === 'en',
-            active: locale.value === 'en',
-            color: locale.value === 'en' ? 'success' : 'neutral',
-            onSelect: () => setLocale('en'),
-          },
-          {
-            label: 'Español',
-            type: 'checkbox',
-            checked: locale.value === 'es',
-            active: locale.value === 'es',
-            color: locale.value === 'es' ? 'success' : 'neutral',
-            onSelect: () => setLocale('es'),
-          },
-          {
-            label: 'Português',
-            type: 'checkbox',
-            checked: locale.value === 'pt',
-            color: locale.value === 'pt' ? 'success' : 'neutral',
-            onSelect: () => setLocale('pt'),
-          },
-        ],
-      },
-    ],
-  ]);
-
   const createButtonItems = (localeKey: string) =>
     computed<ContextMenuItem[][]>(() => [
       [
-        {
-          type: 'label',
-        },
         {
           label: 'PDF',
           icon: 'mdi-file-pdf-outline',
@@ -153,13 +66,13 @@
         },
         {
           label: t(`${localeKey}.formats.google.label`),
-          icon: 'mdi-open-in-new',
+          icon: 'mdi-google-drive',
           to: `/${t(`${localeKey}.locale`)}/resume/e`,
           target: '_blank',
         },
         {
           label: t(`${localeKey}.formats.linkedin`),
-          icon: 'mdi-open-in-new',
+          icon: 'mdi-linkedin',
           to: `https://www.linkedin.com/in/afonsodemori/${t(`${localeKey}.locale`)}`,
           target: '_blank',
         },
@@ -169,6 +82,45 @@
   const itemsFirstButton = createButtonItems('resume.first');
   const itemsSecondButton = createButtonItems('resume.second');
   const itemsThirdButton = createButtonItems('resume.third');
+
+  const contexMenuItems = computed<ContextMenuItem[][]>(() => [
+    [
+      {
+        label: t('resume.select_version'),
+        type: 'label',
+      },
+      ...itemsFirstButton.value[0].slice(0, 4), // Versions
+      {
+        type: 'separator',
+      },
+      itemsFirstButton.value[0][5], // Google Drive
+    ],
+    [
+      {
+        label: t('resume.print'),
+        icon: 'mdi-printer-outline',
+        onSelect: () => setTimeout(() => print(), 200),
+      },
+    ],
+    [
+      {
+        label: t('resume.languages'),
+        icon: 'mdi-translate',
+        children: [
+          { code: 'en', label: 'English' },
+          { code: 'es', label: 'Español' },
+          { code: 'pt', label: 'Português' },
+        ].map((lang) => ({
+          label: lang.label,
+          type: 'checkbox',
+          checked: locale.value === lang.code,
+          active: locale.value === lang.code,
+          color: locale.value === lang.code ? 'success' : 'neutral',
+          onSelect: () => setLocale(lang.code as 'en' | 'es' | 'pt'),
+        })),
+      },
+    ],
+  ]);
 </script>
 
 <template>
