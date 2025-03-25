@@ -114,158 +114,61 @@
     ],
   ]);
 
-  const itemsFirstButton = computed<ContextMenuItem[][]>(() => [
-    [
-      {
-        type: 'label',
-      },
-      {
-        label: 'PDF',
-        icon: 'mdi-file-pdf-outline',
-        to: `/docs/resume-${t('resume.first.locale')}-afonso_de_mori.pdf`,
-        target: '_blank',
-        kbds: ['.pdf'],
-      },
-      {
-        label: 'Microsoft Word',
-        icon: 'mdi-file-word-outline',
-        to: `/docs/resume-${t('resume.first.locale')}-afonso_de_mori.docx`,
-        target: '_blank',
-        kbds: ['.docx'],
-      },
-      {
-        label: 'Markdown',
-        icon: 'mdi-file-text-outline',
-        to: `/docs/resume-${t('resume.first.locale')}-afonso_de_mori.md`,
-        target: '_blank',
-        kbds: ['.md'],
-      },
-      {
-        label: t('resume.first.formats.txt'),
-        icon: 'mdi-file-text-outline',
-        to: `/docs/resume-${t('resume.first.locale')}-afonso_de_mori.txt`,
-        target: '_blank',
-        kbds: ['.txt'],
-      },
-      {
-        type: 'separator',
-      },
-      {
-        label: t('resume.first.formats.google.label'),
-        icon: 'mdi-open-in-new',
-        to: `/${t('resume.first.locale')}/resume/e`,
-        target: '_blank',
-      },
-      {
-        label: t('resume.first.formats.linkedin'),
-        icon: 'mdi-open-in-new',
-        to: `https://www.linkedin.com/in/afonsodemori/${t('resume.first.locale')}`,
-        target: '_blank',
-      },
-    ],
-  ]);
+  const createButtonItems = (localeKey: string) =>
+    computed<ContextMenuItem[][]>(() => [
+      [
+        {
+          type: 'label',
+        },
+        {
+          label: 'PDF',
+          icon: 'mdi-file-pdf-outline',
+          to: `/docs/resume-${t(`${localeKey}.locale`)}-afonso_de_mori.pdf`,
+          target: '_blank',
+          kbds: ['.pdf'],
+        },
+        {
+          label: 'Microsoft Word',
+          icon: 'mdi-file-word-outline',
+          to: `/docs/resume-${t(`${localeKey}.locale`)}-afonso_de_mori.docx`,
+          target: '_blank',
+          kbds: ['.docx'],
+        },
+        {
+          label: 'Markdown',
+          icon: 'mdi-file-text-outline',
+          to: `/docs/resume-${t(`${localeKey}.locale`)}-afonso_de_mori.md`,
+          target: '_blank',
+          kbds: ['.md'],
+        },
+        {
+          label: t(`${localeKey}.formats.txt`),
+          icon: 'mdi-file-text-outline',
+          to: `/docs/resume-${t(`${localeKey}.locale`)}-afonso_de_mori.txt`,
+          target: '_blank',
+          kbds: ['.txt'],
+        },
+        {
+          type: 'separator',
+        },
+        {
+          label: t(`${localeKey}.formats.google.label`),
+          icon: 'mdi-open-in-new',
+          to: `/${t(`${localeKey}.locale`)}/resume/e`,
+          target: '_blank',
+        },
+        {
+          label: t(`${localeKey}.formats.linkedin`),
+          icon: 'mdi-open-in-new',
+          to: `https://www.linkedin.com/in/afonsodemori/${t(`${localeKey}.locale`)}`,
+          target: '_blank',
+        },
+      ],
+    ]);
 
-  const itemsSecondButton = computed<ContextMenuItem[][]>(() => [
-    [
-      {
-        type: 'label',
-      },
-      {
-        label: 'PDF',
-        icon: 'mdi-file-pdf-outline',
-        to: `/docs/resume-${t('resume.second.locale')}-afonso_de_mori.docx`,
-        target: '_blank',
-        kbds: ['.pdf'],
-      },
-      {
-        label: 'Microsoft Word',
-        icon: 'mdi-file-word-outline',
-        to: `/docs/resume-${t('resume.second.locale')}-afonso_de_mori.docx`,
-        target: '_blank',
-        kbds: ['.docx'],
-      },
-      {
-        label: 'Markdown',
-        icon: 'mdi-file-text-outline',
-        to: `/docs/resume-${t('resume.second.locale')}-afonso_de_mori.docx`,
-        target: '_blank',
-        kbds: ['.md'],
-      },
-      {
-        label: t('resume.second.formats.txt'),
-        icon: 'mdi-file-text-outline',
-        to: `/docs/resume-${t('resume.second.locale')}-afonso_de_mori.docx`,
-        target: '_blank',
-        kbds: ['.txt'],
-      },
-      {
-        type: 'separator',
-      },
-      {
-        label: t('resume.second.formats.google.label'),
-        icon: 'mdi-open-in-new',
-        to: `/${t('resume.second.locale')}/resume/e`,
-        target: '_blank',
-      },
-      {
-        label: t('resume.second.formats.linkedin'),
-        icon: 'mdi-open-in-new',
-        to: `https://www.linkedin.com/in/afonsodemori/${t('resume.second.locale')}`,
-        target: '_blank',
-      },
-    ],
-  ]);
-
-  const itemsThirdButton = computed<ContextMenuItem[][]>(() => [
-    [
-      {
-        type: 'label',
-      },
-      {
-        label: 'PDF',
-        icon: 'mdi-file-pdf-outline',
-        to: `/docs/resume-${t('resume.third.locale')}-afonso_de_mori.docx`,
-        target: '_blank',
-        kbds: ['.pdf'],
-      },
-      {
-        label: 'Microsoft Word',
-        icon: 'mdi-file-word-outline',
-        to: `/docs/resume-${t('resume.third.locale')}-afonso_de_mori.docx`,
-        target: '_blank',
-        kbds: ['.docx'],
-      },
-      {
-        label: 'Markdown',
-        icon: 'mdi-file-text-outline',
-        to: `/docs/resume-${t('resume.third.locale')}-afonso_de_mori.docx`,
-        target: '_blank',
-        kbds: ['.md'],
-      },
-      {
-        label: t('resume.third.formats.txt'),
-        icon: 'mdi-file-text-outline',
-        to: `/docs/resume-${t('resume.third.locale')}-afonso_de_mori.docx`,
-        target: '_blank',
-        kbds: ['.txt'],
-      },
-      {
-        type: 'separator',
-      },
-      {
-        label: t('resume.third.formats.google.label'),
-        icon: 'mdi-open-in-new',
-        to: `/${t('resume.third.locale')}/resume/e`,
-        target: '_blank',
-      },
-      {
-        label: t('resume.third.formats.linkedin'),
-        icon: 'mdi-open-in-new',
-        to: `https://www.linkedin.com/in/afonsodemori/${t('resume.third.locale')}`,
-        target: '_blank',
-      },
-    ],
-  ]);
+  const itemsFirstButton = createButtonItems('resume.first');
+  const itemsSecondButton = createButtonItems('resume.second');
+  const itemsThirdButton = createButtonItems('resume.third');
 </script>
 
 <template>
