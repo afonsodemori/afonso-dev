@@ -21,6 +21,35 @@ nav:
   resume: Currículo
   contact: Contato
 
+resume:
+  languages: Idiomas
+  print: Imprimir
+  select_version: Escolha uma versão
+  first:
+    locale: pt
+    label: Versões em português
+    formats:
+      txt: Texto simples
+      google:
+        label: Ver no Google Docs
+      linkedin: Ver perfil no LinkedIn
+  second:
+    locale: en
+    label: English versions
+    formats:
+      txt: Plain text
+      google:
+        label: See in Google Docs
+      linkedin: See LinkedIn profile
+  third:
+    locale: es
+    label: Versiones en español
+    formats:
+      txt: Texto sin formato
+      google:
+        label: Ver en Google Docs
+      linkedin: Ver perfil en LinkedIn
+
 contact:
   form:
     name: Nome

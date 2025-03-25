@@ -1,5 +1,7 @@
 <script setup lang="ts">
-  const { t, locale } = useI18n();
+  import type { ContextMenuItem } from '@nuxt/ui';
+
+  const { t, locale, setLocale } = useI18n();
 
   useHead({
     title: t('head.resume.title'),
@@ -27,12 +29,279 @@
       }
     }
   });
+
+  const contexMenuItems = computed<ContextMenuItem[][]>(() => [
+    [
+      {
+        label: t('resume.select_version'),
+        type: 'label',
+      },
+      {
+        label: 'PDF',
+        icon: 'mdi-file-pdf-outline',
+        to: `/docs/resume-${locale.value}-afonso_de_mori.pdf`,
+        target: '_blank',
+        kbds: ['.pdf'],
+      },
+      {
+        label: 'Microsoft Word',
+        icon: 'mdi-file-word-outline',
+        to: `/docs/resume-${locale.value}-afonso_de_mori.docx`,
+        target: '_blank',
+        kbds: ['.docx'],
+      },
+      {
+        label: 'Markdown',
+        icon: 'mdi-file-text-outline',
+        to: `/docs/resume-${locale.value}-afonso_de_mori.md`,
+        target: '_blank',
+        kbds: ['.md'],
+      },
+      {
+        label: t('resume.first.formats.txt'),
+        icon: 'mdi-file-text-outline',
+        to: `/docs/resume-${locale.value}-afonso_de_mori.txt`,
+        target: '_blank',
+        kbds: ['.txt'],
+      },
+      {
+        type: 'separator',
+      },
+      {
+        label: t('resume.first.formats.google.label'),
+        icon: 'mdi-google-drive',
+        to: `/${locale.value}/resume/e`,
+        target: '_blank',
+      },
+    ],
+    [
+      {
+        label: t('resume.print'),
+        icon: 'mdi-printer-outline',
+        onSelect: () => window.setTimeout(print, 200),
+      },
+    ],
+    [
+      {
+        label: t('resume.languages'),
+        icon: 'mdi-translate',
+        children: [
+          {
+            label: 'English',
+            type: 'checkbox',
+            checked: locale.value === 'en',
+            active: locale.value === 'en',
+            color: locale.value === 'en' ? 'success' : 'neutral',
+            onSelect: () => setLocale('en'),
+          },
+          {
+            label: 'Español',
+            type: 'checkbox',
+            checked: locale.value === 'es',
+            active: locale.value === 'es',
+            color: locale.value === 'es' ? 'success' : 'neutral',
+            onSelect: () => setLocale('es'),
+          },
+          {
+            label: 'Português',
+            type: 'checkbox',
+            checked: locale.value === 'pt',
+            color: locale.value === 'pt' ? 'success' : 'neutral',
+            onSelect: () => setLocale('pt'),
+          },
+        ],
+      },
+    ],
+  ]);
+
+  const itemsFirstButton = computed<ContextMenuItem[][]>(() => [
+    [
+      {
+        type: 'label',
+      },
+      {
+        label: 'PDF',
+        icon: 'mdi-file-pdf-outline',
+        to: `/docs/resume-${t('resume.first.locale')}-afonso_de_mori.pdf`,
+        target: '_blank',
+        kbds: ['.pdf'],
+      },
+      {
+        label: 'Microsoft Word',
+        icon: 'mdi-file-word-outline',
+        to: `/docs/resume-${t('resume.first.locale')}-afonso_de_mori.docx`,
+        target: '_blank',
+        kbds: ['.docx'],
+      },
+      {
+        label: 'Markdown',
+        icon: 'mdi-file-text-outline',
+        to: `/docs/resume-${t('resume.first.locale')}-afonso_de_mori.md`,
+        target: '_blank',
+        kbds: ['.md'],
+      },
+      {
+        label: t('resume.first.formats.txt'),
+        icon: 'mdi-file-text-outline',
+        to: `/docs/resume-${t('resume.first.locale')}-afonso_de_mori.txt`,
+        target: '_blank',
+        kbds: ['.txt'],
+      },
+      {
+        type: 'separator',
+      },
+      {
+        label: t('resume.first.formats.google.label'),
+        icon: 'mdi-open-in-new',
+        to: `/${t('resume.first.locale')}/resume/e`,
+        target: '_blank',
+      },
+      {
+        label: t('resume.first.formats.linkedin'),
+        icon: 'mdi-open-in-new',
+        to: `https://www.linkedin.com/in/afonsodemori/${t('resume.first.locale')}`,
+        target: '_blank',
+      },
+    ],
+  ]);
+
+  const itemsSecondButton = computed<ContextMenuItem[][]>(() => [
+    [
+      {
+        type: 'label',
+      },
+      {
+        label: 'PDF',
+        icon: 'mdi-file-pdf-outline',
+        to: `/docs/resume-${t('resume.second.locale')}-afonso_de_mori.docx`,
+        target: '_blank',
+        kbds: ['.pdf'],
+      },
+      {
+        label: 'Microsoft Word',
+        icon: 'mdi-file-word-outline',
+        to: `/docs/resume-${t('resume.second.locale')}-afonso_de_mori.docx`,
+        target: '_blank',
+        kbds: ['.docx'],
+      },
+      {
+        label: 'Markdown',
+        icon: 'mdi-file-text-outline',
+        to: `/docs/resume-${t('resume.second.locale')}-afonso_de_mori.docx`,
+        target: '_blank',
+        kbds: ['.md'],
+      },
+      {
+        label: t('resume.second.formats.txt'),
+        icon: 'mdi-file-text-outline',
+        to: `/docs/resume-${t('resume.second.locale')}-afonso_de_mori.docx`,
+        target: '_blank',
+        kbds: ['.txt'],
+      },
+      {
+        type: 'separator',
+      },
+      {
+        label: t('resume.second.formats.google.label'),
+        icon: 'mdi-open-in-new',
+        to: `/${t('resume.second.locale')}/resume/e`,
+        target: '_blank',
+      },
+      {
+        label: t('resume.second.formats.linkedin'),
+        icon: 'mdi-open-in-new',
+        to: `https://www.linkedin.com/in/afonsodemori/${t('resume.second.locale')}`,
+        target: '_blank',
+      },
+    ],
+  ]);
+
+  const itemsThirdButton = computed<ContextMenuItem[][]>(() => [
+    [
+      {
+        type: 'label',
+      },
+      {
+        label: 'PDF',
+        icon: 'mdi-file-pdf-outline',
+        to: `/docs/resume-${t('resume.third.locale')}-afonso_de_mori.docx`,
+        target: '_blank',
+        kbds: ['.pdf'],
+      },
+      {
+        label: 'Microsoft Word',
+        icon: 'mdi-file-word-outline',
+        to: `/docs/resume-${t('resume.third.locale')}-afonso_de_mori.docx`,
+        target: '_blank',
+        kbds: ['.docx'],
+      },
+      {
+        label: 'Markdown',
+        icon: 'mdi-file-text-outline',
+        to: `/docs/resume-${t('resume.third.locale')}-afonso_de_mori.docx`,
+        target: '_blank',
+        kbds: ['.md'],
+      },
+      {
+        label: t('resume.third.formats.txt'),
+        icon: 'mdi-file-text-outline',
+        to: `/docs/resume-${t('resume.third.locale')}-afonso_de_mori.docx`,
+        target: '_blank',
+        kbds: ['.txt'],
+      },
+      {
+        type: 'separator',
+      },
+      {
+        label: t('resume.third.formats.google.label'),
+        icon: 'mdi-open-in-new',
+        to: `/${t('resume.third.locale')}/resume/e`,
+        target: '_blank',
+      },
+      {
+        label: t('resume.third.formats.linkedin'),
+        icon: 'mdi-open-in-new',
+        to: `https://www.linkedin.com/in/afonsodemori/${t('resume.third.locale')}`,
+        target: '_blank',
+      },
+    ],
+  ]);
 </script>
 
 <template>
   <div class="containers">
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <div id="page" v-html="$t('resume.html')" />
+    <div class="text-center pb-5 print:hidden">
+      <UDropdownMenu arrow :items="itemsFirstButton" external-icon="false">
+        <UButton
+          class="p-3 m-1"
+          :label="t('resume.first.label')"
+          variant="subtle"
+          trailing-icon="i-lucide-chevron-down"
+        />
+      </UDropdownMenu>
+      <UDropdownMenu arrow :items="itemsSecondButton" external-icon="false">
+        <UButton
+          class="p-3 m-1"
+          :label="t('resume.second.label')"
+          color="neutral"
+          variant="outline"
+          trailing-icon="i-lucide-chevron-down"
+        />
+      </UDropdownMenu>
+      <UDropdownMenu arrow :items="itemsThirdButton" external-icon="false">
+        <UButton
+          class="p-3 m-1"
+          :label="t('resume.third.label')"
+          color="neutral"
+          variant="outline"
+          trailing-icon="i-lucide-chevron-down"
+        />
+      </UDropdownMenu>
+    </div>
+    <UContextMenu :items="contexMenuItems" external-icon="false">
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div id="page" v-html="$t('resume.html')" />
+    </UContextMenu>
   </div>
 </template>
 
@@ -179,6 +448,42 @@
     :deep(ul) {
       margin-left: 1.5rem;
       text-align: left;
+    }
+  }
+
+  @media print {
+    #page,
+    .containers {
+      max-width: 100%;
+      width: 100%;
+      box-shadow: none;
+      margin: 0;
+      padding: 0;
+      background-color: white;
+      color: #000;
+    }
+
+    :deep(h1) {
+      font-size: 20pt;
+    }
+
+    :deep(h2) {
+      margin-top: 1.5rem;
+      margin-bottom: 0.25rem;
+      font-size: 13pt;
+    }
+
+    :deep(h3) {
+      font-size: 1.1rem;
+    }
+
+    :deep(ul) {
+      margin-top: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    :deep(.contact-separator:first-of-type) {
+      height: 10pt;
     }
   }
 </style>

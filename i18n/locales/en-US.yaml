@@ -21,6 +21,35 @@ home:
   title: Software Developer
   bio: Software Engineer with over 16 years of experience in backend development. Specialized in PHP, Symfony, MySQL, and Doctrine. I have knowledge in DevOps and frontend, and I adapt easily to different environments and projects. Committed to continuous learning, innovation, and teamwork.
 
+resume:
+  languages: Languages
+  print: Print
+  select_version: Choose a version
+  first:
+    locale: en
+    label: English versions
+    formats:
+      txt: Plain text
+      google:
+        label: See in Google Docs
+      linkedin: See LinkedIn profile
+  second:
+    locale: es
+    label: Versiones en español
+    formats:
+      txt: Texto sin formato
+      google:
+        label: Ver en Google Docs
+      linkedin: Ver perfil en LinkedIn
+  third:
+    locale: pt
+    label: Versões em português
+    formats:
+      txt: Texto simples
+      google:
+        label: Ver no Google Docs
+      linkedin: Ver perfil no LinkedIn
+
 contact:
   form:
     name: Name

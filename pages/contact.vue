@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import * as z from 'zod';
   import type { FormSubmitEvent } from '@nuxt/ui';
+
   const { t } = useI18n();
   const config = useRuntimeConfig();
 
@@ -11,11 +12,16 @@
     title: t('head.contact.title'),
     script: [
       {
+        id: 'recaptcha-script',
         src: `https://www.google.com/recaptcha/api.js?render=${siteKey}`,
         async: true,
         defer: true,
       },
     ],
+  });
+
+  onBeforeUnmount(() => {
+    document.querySelector('.grecaptcha-badge')?.remove();
   });
 
   const schema = z.object({
