@@ -3,6 +3,6 @@
   // https://developers.cloudflare.com/workers/languages/typescript/#generate-types
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "types": ["worker-configuration.d.ts"] // TODO: Check this in case of errors
+    "types": ["vitest/globals", "worker-configuration.d.ts"] // TODO: Check this in case of errors
   }
 }
