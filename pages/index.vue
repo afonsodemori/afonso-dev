@@ -7,6 +7,12 @@
 
   useHead({
     title: t('head.home.title'),
+    link: [
+      { rel: 'alternate', hreflang: 'en', href: 'https://afonso.dev/en' },
+      { rel: 'alternate', hreflang: 'es', href: 'https://afonso.dev/es' },
+      { rel: 'alternate', hreflang: 'pt', href: 'https://afonso.dev/pt' },
+      { rel: 'canonical', href: 'https://afonso.dev/en' },
+    ],
   });
 </script>
 

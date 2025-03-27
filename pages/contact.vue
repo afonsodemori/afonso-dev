@@ -10,6 +10,12 @@
 
   useHead({
     title: t('head.contact.title'),
+    link: [
+      { rel: 'alternate', hreflang: 'en', href: 'https://afonso.dev/en/contact' },
+      { rel: 'alternate', hreflang: 'es', href: 'https://afonso.dev/es/contact' },
+      { rel: 'alternate', hreflang: 'pt', href: 'https://afonso.dev/pt/contact' },
+      { rel: 'canonical', href: 'https://afonso.dev/en/contact' },
+    ],
     script: [
       {
         id: 'recaptcha-script',

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- English -->
+  <url>
+    <loc>https://afonso.dev/en</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://afonso.dev/en/resume</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://afonso.dev/en/contact</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Spanish -->
+  <url>
+    <loc>https://afonso.dev/es</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://afonso.dev/es/resume</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://afonso.dev/es/contact</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Portuguese -->
+  <url>
+    <loc>https://afonso.dev/pt</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://afonso.dev/pt/resume</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://afonso.dev/pt/contact</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>
