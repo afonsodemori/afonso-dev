@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import type { ContextMenuItem } from '@nuxt/ui';
+  import type { ContextMenuItem, DropdownMenuItem } from '@nuxt/ui';
 
   const { t, locale, setLocale } = useI18n();
 
@@ -31,7 +31,7 @@
   });
 
   const createButtonItems = (localeKey: string) =>
-    computed<ContextMenuItem[][]>(() => [
+    computed<DropdownMenuItem[][]>(() => [
       [
         {
           label: 'PDF',
@@ -105,7 +105,7 @@
     [
       {
         label: t('resume.languages'),
-        icon: 'mdi-translate',
+        icon: 'i-lucide-earth',
         children: [
           { code: 'en', label: 'English' },
           { code: 'es', label: 'Español' },
@@ -114,7 +114,6 @@
           label: lang.label,
           type: 'checkbox',
           checked: locale.value === lang.code,
-          active: locale.value === lang.code,
           color: locale.value === lang.code ? 'success' : 'neutral',
           onSelect: () => setLocale(lang.code as 'en' | 'es' | 'pt'),
         })),

@@ -1,8 +1,10 @@
 <script setup lang="ts">
+  import type { NavigationMenuItem } from '@nuxt/ui';
+
   const { locale, t, setLocale } = useI18n();
   const localePath = useLocalePath();
 
-  const itemsComputed = computed(() => [
+  const items = computed<NavigationMenuItem[][]>(() => [
     [
       {
         label: t('nav.home'),
@@ -37,22 +39,14 @@
         label: locale.value.toUpperCase(),
         icon: 'i-lucide-earth',
         children: [
-          {
-            label: 'English',
-            active: locale.value === 'en',
-            onSelect: () => setLocale('en'),
-          },
-          {
-            label: 'Español',
-            active: locale.value === 'es',
-            onSelect: () => setLocale('es'),
-          },
-          {
-            label: 'Português',
-            active: locale.value === 'pt',
-            onSelect: () => setLocale('pt'),
-          },
-        ],
+          { code: 'en', label: 'English' },
+          { code: 'es', label: 'Español' },
+          { code: 'pt', label: 'Português' },
+        ].map((lang) => ({
+          label: lang.label,
+          active: locale.value === lang.code,
+          onSelect: () => setLocale(lang.code as 'en' | 'es' | 'pt'),
+        })),
       },
     ],
   ]);
@@ -65,7 +59,7 @@
       highlight-color="primary"
       orientation="horizontal"
       content-orientation="vertical"
-      :items="itemsComputed"
+      :items="items"
       class="hidden md:flex z-10 data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48"
     />
 
@@ -75,7 +69,7 @@
       highlight-color="primary"
       orientation="horizontal"
       content-orientation="vertical"
-      :items="itemsComputed[0]"
+      :items="items[0]"
       class="flex md:hidden data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-full"
     />
 

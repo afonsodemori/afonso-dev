@@ -2,7 +2,7 @@
   const { t } = useI18n();
   const localePath = useLocalePath();
 
-  const itemsComputed = computed(() => [
+  const items = computed(() => [
     [
       {
         label: t('nav.home'),
@@ -25,25 +25,21 @@
 
 <template>
   <div>
-    <div class="internal">
-      <UNavigationMenu :items="itemsComputed" class="w-full justify-center" />
-    </div>
+    <UNavigationMenu :items="items" class="w-full justify-center" />
   </div>
 </template>
 
 <style scoped>
-  .internal {
+  div {
     margin-top: 4rem;
     margin-bottom: 1rem;
     overflow: hidden;
   }
 
-  :deep(.internal nav) {
-    transform: scale(1.15);
-    transform-origin: top;
-  }
-
-  .social {
-    zoom: 0.9;
+  @media only screen and (min-width: 1200px) {
+    :deep(nav) {
+      transform: scale(1.15);
+      transform-origin: top;
+    }
   }
 </style>

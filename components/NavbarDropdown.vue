@@ -1,43 +1,23 @@
 <script setup lang="ts">
   import type { DropdownMenuItem } from '@nuxt/ui';
-  const { locale, setLocale } = useI18n();
+  const { locale, setLocale, t } = useI18n();
 
-  const items3 = computed<DropdownMenuItem[][]>(() => [
+  const items = computed<DropdownMenuItem[][]>(() => [
     [
       {
-        label: 'Language',
+        label: t('resume.languages'),
         icon: 'i-lucide-earth',
         children: [
-          [
-            {
-              label: 'English',
-              type: 'checkbox' as const,
-              checked: locale.value === 'en',
-              disabled: locale.value === 'en',
-              onUpdateChecked(_checked: boolean) {
-                setLocale('en');
-              },
-            },
-            {
-              label: 'Español',
-              type: 'checkbox' as const,
-              checked: locale.value === 'es',
-              disabled: locale.value === 'es',
-              onUpdateChecked(_checked: boolean) {
-                setLocale('es');
-              },
-            },
-            {
-              label: 'Português',
-              type: 'checkbox' as const,
-              checked: locale.value === 'pt',
-              disabled: locale.value === 'pt',
-              onUpdateChecked(_checked: boolean) {
-                setLocale('pt');
-              },
-            },
-          ],
-        ],
+          { code: 'en', label: 'English' },
+          { code: 'es', label: 'Español' },
+          { code: 'pt', label: 'Português' },
+        ].map((lang) => ({
+          label: lang.label,
+          type: 'checkbox',
+          checked: locale.value === lang.code,
+          color: locale.value === lang.code ? 'success' : 'neutral',
+          onSelect: () => setLocale(lang.code as 'en' | 'es' | 'pt'),
+        })),
       },
     ],
     [
@@ -58,21 +38,15 @@
 </script>
 
 <template>
-  <div class="fns">
-    <UDropdownMenu
-      :items="items3"
-      :content="{
-        align: 'start',
-        sideOffset: 8,
-      }"
-    >
+  <div>
+    <UDropdownMenu :items="items">
       <UButton icon="i-lucide-menu" color="neutral" variant="link" size="xl" />
     </UDropdownMenu>
   </div>
 </template>
 
 <style scoped>
-  .fns {
+  div {
     position: absolute;
     top: 0;
     right: 0;

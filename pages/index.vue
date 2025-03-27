@@ -1,4 +1,3 @@
-import colors from 'tailwindcss/colors';
 <script setup lang="ts">
   const { t } = useI18n();
 
