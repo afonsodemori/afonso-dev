@@ -1,5 +1,5 @@
 head:
-  home:
+  index:
     title: Afonso de Mori A. Silva - Software Engineer - Spain
     description: Afonso de Mori Ayres da Silva's personal profile. Back-end web developer PHP focused.
     keywords: afonso, mori, ayres, silva, demori, afonsodemori, afonsosilva89, web developer, php, typescript
@@ -13,11 +13,11 @@ head:
     keywords: afonso, mori, ayres, silva, contact, afonsodemori
 
 nav:
-  home: Home
+  index: Home
   resume: Resume
   contact: Contact
 
-home:
+index:
   title: Software Developer
   bio: Software Engineer with over 16 years of experience in backend development. Specialized in PHP, Symfony, MySQL, and Doctrine. I have knowledge in DevOps and frontend, and I adapt easily to different environments and projects. Committed to continuous learning, innovation, and teamwork.
 
@@ -71,3 +71,8 @@ contact:
     success: Your message was sent successfully!
     failure: Failed to submit. Please try again.
     unexpected: An error occurred. Please try again.
+
+error:
+  error: Error
+  title: That's an error.
+  details: That's all we know.

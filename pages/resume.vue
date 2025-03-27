@@ -3,16 +3,6 @@
 
   const { t, locale, setLocale } = useI18n();
 
-  useHead({
-    title: t('head.resume.title'),
-    link: [
-      { rel: 'alternate', hreflang: 'en', href: 'https://afonso.dev/en/resume' },
-      { rel: 'alternate', hreflang: 'es', href: 'https://afonso.dev/es/resume' },
-      { rel: 'alternate', hreflang: 'pt', href: 'https://afonso.dev/pt/resume' },
-      { rel: 'canonical', href: 'https://afonso.dev/en/resume' },
-    ],
-  });
-
   onMounted(() => {
     document.querySelectorAll<HTMLAnchorElement>('#page a').forEach((a, index) => {
       if (index === 0) {

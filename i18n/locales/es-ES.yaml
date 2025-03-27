@@ -1,5 +1,5 @@
 head:
-  home:
+  index:
     title: Afonso de Mori A. Silva - Ingeniero de Software - España
     description: Perfil personal de Afonso de Mori Ayres da Silva. Desarrollador web back-end enfocado en PHP.
     keywords: afonso, alfonso, mori, ayres, silva, demori, afonsodemori, afonsosilva89, desarrollador web, php, typescript
@@ -13,11 +13,11 @@ head:
     keywords: afonso, alfonso, mori, ayres, silva, contacto, afonsodemori
 
 nav:
-  home: Inicio
+  index: Inicio
   resume: Currículo
   contact: Contacto
 
-home:
+index:
   title: Desarrollador de Software
   bio: Ingeniero de Software con más de 16 años de experiencia en desarrollo back-end. Especializado en PHP, Symfony, MySQL y Doctrine. Tengo conocimientos en DevOps y frontend, y me adapto fácilmente a diferentes entornos y proyectos. Comprometido con el aprendizaje continuo, la innovación y el trabajo en equipo.
 
@@ -71,3 +71,8 @@ contact:
     success: ¡Tu mensaje se envió con éxito!
     failure: No se pudo enviar. Por favor, inténtalo de nuevo.
     unexpected: Ocurrió un error. Por favor, inténtalo de nuevo.
+
+error:
+  error: Error
+  title: Eso es un error.
+  details: Eso es todo lo que sabemos.

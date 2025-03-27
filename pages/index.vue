@@ -1,41 +1,19 @@
 <script setup lang="ts">
-  const { t } = useI18n();
-
-  definePageMeta({
-    layout: false,
-  });
-
-  useHead({
-    title: t('head.home.title'),
-    link: [
-      { rel: 'alternate', hreflang: 'en', href: 'https://afonso.dev/en' },
-      { rel: 'alternate', hreflang: 'es', href: 'https://afonso.dev/es' },
-      { rel: 'alternate', hreflang: 'pt', href: 'https://afonso.dev/pt' },
-      { rel: 'canonical', href: 'https://afonso.dev/en' },
-    ],
-  });
+  definePageMeta({ layout: 'base' });
 </script>
 
 <template>
   <main>
-    <div>
-      <NavbarDropdown />
-      <Header />
-      <div class="bio">
-        <p>{{ $t('home.bio') }}</p>
-      </div>
-      <HomeFooter />
+    <NavbarDropdown />
+    <Header />
+    <div class="bio">
+      <p>{{ $t('index.bio') }}</p>
     </div>
+    <HomeFooter />
   </main>
 </template>
 
 <style scoped>
-  :deep(.ttt) {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
   main {
     min-height: 90vh;
     display: flex;

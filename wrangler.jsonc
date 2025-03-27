@@ -28,6 +28,18 @@
    * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
    */
   // "vars": { "MY_VARIABLE": "production_value" },
+  "env": {
+    "preview": {
+      "vars": {
+        "NUXT_PUBLIC_HOST": "https://preview.afonso.pages.dev",
+      },
+    },
+    "production": {
+      "vars": {
+        "NUXT_PUBLIC_HOST": "https://afonso.dev",
+      },
+    },
+  },
   /**
    * Note: Use secrets to store sensitive data.
    * https://developers.cloudflare.com/workers/configuration/secrets/

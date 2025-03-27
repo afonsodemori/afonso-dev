@@ -1,42 +1,12 @@
 <script setup lang="ts">
-  const { locale, t } = useI18n();
-  const localePath = useLocalePath();
-
-  useHead({
-    htmlAttrs: {
-      lang: locale,
-    },
-    title: 'afonso.dev',
-    meta: [
-      { name: 'description', content: '' },
-      { name: 'keywords', content: '' },
-    ],
-  });
+  import BaseLayout from '~/components/BaseLayout.vue';
 </script>
 
 <template>
-  <div>
+  <BaseLayout>
     <Navbar class="print:hidden" />
     <Header class="print:hidden" />
-    <div class="my-10 print:m-0">
-      <slot />
-    </div>
-    <div class="print:hidden">
-      <USeparator />
-      <div class="m-5 text-center text-sm text-neutral-500">
-        <p>Afonso de Mori - {{ $t('home.title') }}</p>
-        <p>
-          <ULink :to="localePath('index')">Home</ULink>
-          |
-          <ULink to="/linkedin" target="_blank">LinkedIn</ULink>
-          |
-          <ULink to="/github" target="_blank">GitHub</ULink>
-          |
-          <ULink :to="localePath('contact')">{{ t('nav.contact') }}</ULink>
-        </p>
-      </div>
-    </div>
-  </div>
+    <div class="my-10 print:m-0"><slot /></div>
+    <DefaultFooter class="print:hidden" />
+  </BaseLayout>
 </template>
-
-<style scoped></style>

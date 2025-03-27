@@ -7,7 +7,7 @@
   const items = computed<NavigationMenuItem[][]>(() => [
     [
       {
-        label: t('nav.home'),
+        label: t('nav.index'),
         to: localePath('index'),
         icon: 'i-lucide-home',
       },

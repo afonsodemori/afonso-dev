@@ -21,7 +21,7 @@
         <span class="nowrap">de Mori</span>
       </NuxtLink>
     </h1>
-    <h2>{{ $t('home.title') }}</h2>
+    <h2>{{ $t('index.title') }}</h2>
   </header>
 </template>
 
