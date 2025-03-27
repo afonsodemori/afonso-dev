@@ -2,6 +2,16 @@
   import type { ContextMenuItem, DropdownMenuItem } from '@nuxt/ui';
 
   const { t, locale, setLocale } = useI18n();
+  const config = useRuntimeConfig();
+  const host = config.public.host;
+
+  useSeoMeta({
+    ogImage: `${host}/static/icons/og-resume-${locale.value}.png`,
+    ogImageWidth: 1000,
+    ogImageHeight: 667,
+    twitterImage: `${host}/static/icons/og-resume-${locale.value}.png`,
+    twitterCard: 'summary_large_image',
+  });
 
   onMounted(() => {
     document.querySelectorAll<HTMLAnchorElement>('#page a').forEach((a, index) => {
