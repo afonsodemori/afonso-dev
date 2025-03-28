@@ -199,7 +199,6 @@
   }
 
   :deep(img:first-of-type) {
-    /* margin-top: 2rem; */
     margin-left: 0;
   }
 
