@@ -2,7 +2,7 @@
 
 # afonso.dev
 
-**PHP** developer since 2008, this project marks my first venture into the **TypeScript** ecosystem.
+After 15+ years as a backend **PHP developer**, I decided to learn **Node**, **TypeScript** and their ecosystem. Rewriting my website served as my hands-on introduction to this new stack, chosen for its well-defined scope that allowed me to focus on fundamentals while delivering a complete product.
 
 🚀 Live at [afonso.dev](https://afonso.dev) _— hosted on Cloudflare Pages_
 
