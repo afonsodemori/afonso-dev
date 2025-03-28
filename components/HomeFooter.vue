@@ -31,15 +31,17 @@
 
 <style scoped>
   div {
-    margin-top: 4rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
     overflow: hidden;
   }
 
   @media only screen and (min-width: 1200px) {
     :deep(nav) {
       transform: scale(1.15);
-      transform-origin: top;
+    }
+
+    div {
+      margin: 1.15rem 0;
     }
   }
 </style>

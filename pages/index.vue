@@ -23,9 +23,7 @@
   }
 
   .bio {
-    margin: auto;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 2rem auto;
     max-width: 700px;
     text-align: center;
     font-weight: 200;
