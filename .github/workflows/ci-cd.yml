@@ -10,6 +10,8 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '**/*.md'
 
 jobs:
   deploy:
@@ -40,5 +42,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy --branch=${{ github.event_name == 'workflow_dispatch' && github.event.inputs.environment || 'preview' }} --commit-dirty=true
+          command: pages deploy --branch=${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && 'production' || github.event_name == 'workflow_dispatch' && github.event.inputs.environment || 'preview' }} --commit-dirty=true
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
