@@ -1,24 +1,44 @@
 {
-	"name": "nuxt-app",
-	"private": true,
-	"type": "module",
-	"scripts": {
-		"build": "nuxt build",
-		"dev": "nuxt dev",
-		"generate": "nuxt generate",
-		"preview": "npm run build && wrangler pages dev",
-		"postinstall": "nuxt prepare",
-		"deploy": "npm run build && wrangler pages deploy",
-		"cf-typegen": "wrangler types"
-	},
-	"dependencies": {
-		"nuxt": "^3.16.1",
-		"vue": "^3.5.13",
-		"vue-router": "^4.5.0"
-	},
-	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20250320.0",
-		"nitro-cloudflare-dev": "^0.2.2",
-		"wrangler": "^4.3.0"
-	}
+  "name": "afonso-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prebuild": "bash bin/prebuild.sh",
+    "build": "npm run prebuild && nuxt build",
+    "build:resume": "tsx bin/resume-import.ts && bash bin/resume-html.sh",
+    "dev": "nuxt dev",
+    "dev:public": "nuxt dev --public",
+    "generate": "nuxt generate",
+    "preview": "npm run build && wrangler pages dev --ip 0.0.0.0",
+    "postinstall": "nuxt prepare",
+    "deploy:preview": "npm run build && wrangler pages deploy --branch=preview --commit-dirty",
+    "deploy:production": "npm run build && wrangler pages deploy --branch=production",
+    "cf-typegen": "wrangler types",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "lint": "eslint . --ignore-pattern 'worker-configuration.d.ts'",
+    "lint:fix": "eslint . --fix --ignore-pattern 'worker-configuration.d.ts'"
+  },
+  "dependencies": {
+    "@nuxt/ui": "^3.0.1",
+    "@nuxtjs/i18n": "^9.3.3",
+    "nuxt": "^3.16.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.2.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.13.11",
+    "@types/supertest": "^6.0.3",
+    "eslint": "^9.22.0",
+    "nitro-cloudflare-dev": "^0.2.2",
+    "prettier": "3.5.3",
+    "supertest": "^7.1.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.9",
+    "wrangler": "^4.3.0"
+  }
 }

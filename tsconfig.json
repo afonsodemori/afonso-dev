@@ -1,9 +1,8 @@
 {
   // https://nuxt.com/docs/guide/concepts/typescript
-"extends": "./.nuxt/tsconfig.json",
-"compilerOptions": {
-    "types": [
-        "@cloudflare/workers-types/2023-07-01"
-    ]
-}
+  // https://developers.cloudflare.com/workers/languages/typescript/#generate-types
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "types": ["vitest/globals", "worker-configuration.d.ts"] // TODO: Check this in case of errors
+  }
 }

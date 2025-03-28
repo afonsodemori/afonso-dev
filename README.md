@@ -1,75 +1,18 @@
-# Nuxt Minimal Starter
+<img src="public/static/icons/favicon-192.png" alt="afonso.dev" width="40" height="40">
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# afonso.dev
 
-## Setup
+**PHP** developer since 2008, this project marks my first venture into the **TypeScript** ecosystem.
 
-Make sure to install dependencies:
+🚀 Live at [afonso.dev](https://afonso.dev) _— hosted on Cloudflare Pages_
 
-```bash
-# npm
-npm install
+💻 Explore more on [my GitHub profile](https://github.com/afonsodemori).
 
-# pnpm
-pnpm install
+## Built with
 
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- **[Nuxt](https://nuxt.com/)** – Vue-based framework for SSR, static sites, and hybrid rendering
+- **[Nitro](https://nitro.unjs.io/)** – Server engine for zero-config, cross-platform deployments
+- **[Nuxt UI](https://ui.nuxt.com/)** – Tailwind CSS-based component library with dark mode, icons, and modularity
+- **[i18n](https://v8.i18n.nuxtjs.org/)** – Dynamic locale management and SEO-friendly translations
+- **[wrangler](https://developers.cloudflare.com/workers/wrangler/)** – Cloudflare Workers CLI for edge deployments and serverless functions
+- **[Cloudflare Pages](https://pages.cloudflare.com/)** – Fast, global static site hosting with automatic CI/CD

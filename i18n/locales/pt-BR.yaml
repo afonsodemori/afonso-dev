@@ -1,0 +1,78 @@
+head:
+  index:
+    title: Afonso de Mori A. Silva - Engenheiro de Software - Espanha
+    description: Perfil pessoal de Afonso de Mori Ayres da Silva. Desenvolvedor web back-end focado em PHP.
+    keywords: afonso, mori, ayres, silva, demori, afonsodemori, afonsosilva89, desenvolvedor web, php, typescript
+  resume:
+    title: 'Currículo: Afonso de Mori - Engenheiro de Software - Espanha'
+    description: Conheça a trajetória profissional de Afonso de Mori, programador com mais de 16 anos de experiência.
+    keywords: curriculum, currículo, programador, afonso, mori, ayres, silva, demori, afonsodemori, afonsosilva89
+  contact:
+    title: Vamos conversar! - Afonso de Mori
+    description: Entre em contato com Afonso de Mori, Engenheiro de Software na Espanha.
+    keywords: afonso, mori, ayres, silva, contato, afonsodemori
+
+index:
+  title: Desenvolvedor de Software
+  bio: Engenheiro de Software com mais de 16 anos de experiência em desenvolvimento back-end. Especializado em PHP, Symfony, MySQL e Doctrine. Tenho conhecimentos em DevOps e frontend, e me adapto facilmente a diferentes ambientes e projetos. Comprometido com aprendizado contínuo, inovação e trabalho em equipe.
+
+nav:
+  index: Início
+  resume: Currículo
+  contact: Contato
+
+resume:
+  languages: Idiomas
+  print: Imprimir
+  select_version: Escolha uma versão
+  first:
+    locale: pt
+    label: Versões em português
+    formats:
+      txt: Texto simples
+      google:
+        label: Ver no Google Docs
+      linkedin: Ver perfil no LinkedIn
+  second:
+    locale: en
+    label: English versions
+    formats:
+      txt: Plain text
+      google:
+        label: See in Google Docs
+      linkedin: See LinkedIn profile
+  third:
+    locale: es
+    label: Versiones en español
+    formats:
+      txt: Texto sin formato
+      google:
+        label: Ver en Google Docs
+      linkedin: Ver perfil en LinkedIn
+
+contact:
+  form:
+    name: Nome
+    email: E-mail
+    subject: Assunto
+    message: Mensagem
+    sample:
+      name: João da Silva
+      email: joao.silva.ok{'@'}exemplo.com
+      subject: Contato via formulário em afonso.dev
+      message: "Olá. Como você está?\n\nIsso está preenchido devido ao modo de desenvolvimento.\n\nO teste terá sucesso se o e-mail tiver OK, e falhará se tiver KO.\n\nAtenciosamente."
+    required: Obrigatório
+    invalid_email: Endereço de e-mail inválido
+    submit: Enviar mensagem
+    submitting: Enviando...
+    captcha:
+      invalid: A verificação do reCAPTCHA falhou.
+      missing: Token reCAPTCHA faltando.
+    success: Sua mensagem foi enviada com sucesso!
+    failure: Falha ao enviar. Por favor, tente novamente.
+    unexpected: Ocorreu um erro. Por favor, tente novamente.
+
+error:
+  error: Erro
+  title: Isso é um erro.
+  details: Isso é tudo o que sabemos.

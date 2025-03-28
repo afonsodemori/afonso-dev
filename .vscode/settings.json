@@ -1,5 +1,19 @@
 {
-	"files.associations": {
-		"wrangler.json": "jsonc"
-	}
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
+  "editor.formatOnSave": true,
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "eslint.validate": ["javascript", "typescript", "vue"],
+  "eslint.useFlatConfig": true,
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "wrangler.json": "jsonc"
+  },
+  "files.autoSave": "onFocusChange",
+  "tailwindCSS.classAttributes": ["class", "ui"],
+  "tailwindCSS.experimental.classRegex": [["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]]
 }
