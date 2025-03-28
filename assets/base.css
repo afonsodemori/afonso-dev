@@ -6,7 +6,6 @@
   font-style: normal;
   font-weight: 100 900;
   src: url('/static/inter-variable.woff2') format('woff2');
-  /* src: url('/static/inter-variable.ttf') format('ttf'); */
   font-display: swap;
 }
 

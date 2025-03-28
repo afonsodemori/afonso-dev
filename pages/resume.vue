@@ -223,7 +223,7 @@
   :deep(h1) {
     font-size: 2rem;
     line-height: 1.2;
-    /* font-weight: 700; */
+    font-weight: 700;
   }
 
   :deep(h2) {
@@ -234,7 +234,7 @@
   :deep(strong),
   :deep(h2 strong),
   :deep(h3 strong) {
-    /* font-weight: 600; */
+    font-weight: 600;
   }
 
   :deep(h4) {

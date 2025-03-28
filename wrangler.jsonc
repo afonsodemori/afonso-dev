@@ -31,11 +31,13 @@
   "env": {
     "preview": {
       "vars": {
+        "NUXT_PUBLIC_NODE_ENV": "preview",
         "NUXT_PUBLIC_HOST": "https://preview.afonso.pages.dev",
       },
     },
     "production": {
       "vars": {
+        "NUXT_PUBLIC_NODE_ENV": "production",
         "NUXT_PUBLIC_HOST": "https://afonso.dev",
       },
     },
