@@ -1,14 +1,34 @@
 <script setup lang="ts">
   import type { ContextMenuItem, DropdownMenuItem } from '@nuxt/ui';
 
-  const { t, locale, setLocale } = useI18n();
+  const { locale, t, setLocale } = useI18n();
   const config = useRuntimeConfig();
   const host = config.public.host;
 
+  useHead({
+    htmlAttrs: { lang: locale.value },
+    link: [
+      { rel: 'canonical', href: `${host}/${locale.value}/resume` },
+      { rel: 'alternate', hreflang: 'en', href: `${host}/en/resume` },
+      { rel: 'alternate', hreflang: 'es', href: `${host}/es/resume` },
+      { rel: 'alternate', hreflang: 'pt', href: `${host}/pt/resume` },
+      { rel: 'manifest', href: '/manifest.json' },
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+      { rel: 'icon', href: '/favicon.ico' },
+    ],
+  });
+
   useSeoMeta({
+    title: t(`head.resume.title`),
+    description: t(`head.resume.description`),
+    ogTitle: t(`head.resume.title`),
+    ogDescription: t(`head.resume.description`),
     ogImage: `${host}/static/icons/og-resume-${locale.value}.png`,
     ogImageWidth: 1000,
     ogImageHeight: 667,
+    ogUrl: `${host}/${locale.value}/resume`,
+    twitterTitle: t(`head.resume.title`),
+    twitterDescription: t(`head.resume.description`),
     twitterImage: `${host}/static/icons/og-resume-${locale.value}.png`,
     twitterCard: 'summary_large_image',
   });

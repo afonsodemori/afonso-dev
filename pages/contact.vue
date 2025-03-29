@@ -2,13 +2,15 @@
   import * as z from 'zod';
   import type { FormSubmitEvent } from '@nuxt/ui';
 
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
   const config = useRuntimeConfig();
+  const host = config.public.host;
 
   const isDevelopment = config.public.nodeEnv === 'development';
   const siteKey = config.public.recaptchaSiteKey;
 
   useHead({
+    htmlAttrs: { lang: locale.value },
     script: [
       {
         id: 'recaptcha-script',
@@ -17,6 +19,30 @@
         defer: true,
       },
     ],
+    link: [
+      { rel: 'canonical', href: `${host}/${locale.value}/contact` },
+      { rel: 'alternate', hreflang: 'en', href: `${host}/en/contact` },
+      { rel: 'alternate', hreflang: 'es', href: `${host}/es/contact` },
+      { rel: 'alternate', hreflang: 'pt', href: `${host}/pt/contact` },
+      { rel: 'manifest', href: '/manifest.json' },
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+      { rel: 'icon', href: '/favicon.ico' },
+    ],
+  });
+
+  useSeoMeta({
+    title: t(`head.contact.title`),
+    description: t(`head.contact.description`),
+    ogTitle: t(`head.contact.title`),
+    ogDescription: t(`head.contact.description`),
+    ogImage: `${host}/static/icons/og.png`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogUrl: `${host}/${locale.value}/contact`,
+    twitterTitle: t(`head.contact.title`),
+    twitterDescription: t(`head.contact.description`),
+    twitterImage: `${host}/static/icons/og.png`,
+    twitterCard: 'summary',
   });
 
   onBeforeUnmount(() => {
