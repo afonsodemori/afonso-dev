@@ -17,6 +17,11 @@ nav:
   resume: Resume
   contact: Contact
 
+theme:
+  label: Theme
+  light: Light
+  dark: Dark
+
 index:
   title: Software Developer
   bio: Software Engineer with over 16 years of experience in backend development. Specialized in PHP, Symfony, MySQL, and Doctrine. I have knowledge in DevOps and frontend, and I adapt easily to different environments and projects. Committed to continuous learning, innovation, and teamwork.

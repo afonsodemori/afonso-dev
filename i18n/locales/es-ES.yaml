@@ -17,6 +17,11 @@ nav:
   resume: Currículo
   contact: Contacto
 
+theme:
+  label: Tema
+  light: Claro
+  dark: Oscuro
+
 index:
   title: Desarrollador de Software
   bio: Ingeniero de Software con más de 16 años de experiencia en desarrollo back-end. Especializado en PHP, Symfony, MySQL y Doctrine. Tengo conocimientos en DevOps y frontend, y me adapto fácilmente a diferentes entornos y proyectos. Comprometido con el aprendizaje continuo, la innovación y el trabajo en equipo.
