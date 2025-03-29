@@ -252,21 +252,19 @@
     text-align: right;
   }
 
-  @media screen and (prefers-color-scheme: dark) {
-    #page {
-      color: rgba(255, 255, 255, 0.8);
-      background-color: rgba(0, 0, 0, 0.25);
-      box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.75);
-    }
+  .dark #page {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 1px 0 rgba(255, 255, 255, 0.75);
+  }
 
-    :deep(a) {
-      color: #51a2ff;
-    }
+  .dark #page :deep(a) {
+    color: #51a2ff;
+  }
 
-    :deep(img) {
-      opacity: 0.75;
-      filter: invert(1);
-    }
+  .dark #page :deep(img) {
+    opacity: 0.75;
+    filter: invert(1);
   }
 
   @media screen and (max-width: 850px) {

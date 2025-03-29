@@ -24,6 +24,10 @@ export default defineNuxtConfig({
 
   css: ['~/assets/base.css'],
 
+  colorMode: {
+    preference: 'dark',
+  },
+
   i18n: {
     locales: [
       { code: 'en', language: 'en-US', files: ['en-US.yaml', 'generated/en-resume.yaml'] },

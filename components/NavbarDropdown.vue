@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import type { DropdownMenuItem } from '@nuxt/ui';
   const { locale, setLocale, t } = useI18n();
+  const colorMode = useColorMode();
 
   const items = computed<DropdownMenuItem[][]>(() => [
     [
@@ -13,11 +14,27 @@
           { code: 'pt', label: 'Português' },
         ].map((lang) => ({
           label: lang.label,
-          type: 'checkbox',
-          checked: locale.value === lang.code,
-          color: locale.value === lang.code ? 'success' : 'neutral',
+          active: locale.value === lang.code,
           onSelect: () => setLocale(lang.code as 'en' | 'es' | 'pt'),
         })),
+      },
+      {
+        label: t('theme.label'),
+        icon: colorMode.preference === 'dark' ? 'i-lucide-moon' : 'i-lucide-sun',
+        children: [
+          {
+            label: t('theme.light'),
+            icon: 'i-lucide-sun',
+            active: colorMode.preference === 'light',
+            onSelect: () => (colorMode.preference = 'light'),
+          },
+          {
+            label: t('theme.dark'),
+            icon: 'i-lucide-moon',
+            active: colorMode.preference === 'dark',
+            onSelect: () => (colorMode.preference = 'dark'),
+          },
+        ],
       },
     ],
     [

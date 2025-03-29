@@ -3,6 +3,7 @@
 
   const { locale, t, setLocale } = useI18n();
   const localePath = useLocalePath();
+  const colorMode = useColorMode();
 
   const items = computed<NavigationMenuItem[][]>(() => [
     [
@@ -48,6 +49,13 @@
           onSelect: () => setLocale(lang.code as 'en' | 'es' | 'pt'),
         })),
       },
+      {
+        icon: colorMode.preference == 'light' ? 'i-lucide-sun' : 'i-lucide-moon',
+        onSelect: () =>
+          colorMode.preference == 'light'
+            ? (colorMode.preference = 'dark')
+            : (colorMode.preference = 'light'),
+      },
     ],
   ]);
 </script>
@@ -60,7 +68,7 @@
       orientation="horizontal"
       content-orientation="vertical"
       :items="items"
-      class="hidden md:flex z-10 data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-48"
+      class="hidden md:flex z-10 data-[orientation=horizontal]:border-b border-(--ui-border)"
     />
 
     <!-- TODO: Temporary lazy fix for small screens -->
@@ -70,7 +78,8 @@
       orientation="horizontal"
       content-orientation="vertical"
       :items="items[0]"
-      class="flex md:hidden data-[orientation=horizontal]:border-b border-(--ui-border) data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-full"
+      class="flex md:hidden data-[orientation=horizontal]:border-b border-(--ui-border)"
+      ,
     />
 
     <NavbarDropdown class="flex md:hidden" />
