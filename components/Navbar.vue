@@ -79,7 +79,6 @@
       content-orientation="vertical"
       :items="items[0]"
       class="flex md:hidden data-[orientation=horizontal]:border-b border-(--ui-border)"
-      ,
     />
 
     <NavbarDropdown class="flex md:hidden" />
