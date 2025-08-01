@@ -9,10 +9,10 @@
     "dev": "nuxt dev",
     "dev:public": "nuxt dev --public",
     "generate": "nuxt generate",
-    "preview": "npm run build && wrangler pages dev --ip 0.0.0.0",
+    "preview": "npm run build && wrangler dev --ip 0.0.0.0",
     "postinstall": "nuxt prepare",
-    "deploy:preview": "npm run build && wrangler pages deploy --branch=preview --commit-dirty",
-    "deploy:production": "npm run build && wrangler pages deploy --branch=production",
+    "deploy:preview": "npm run build && wrangler versions upload --env=preview --preview-alias=preview",
+    "deploy:production": "npm run build:resume && npm run build && wrangler deploy --env=production",
     "cf-typegen": "wrangler types",
     "format:check": "prettier --check .",
     "format": "prettier --write .",
@@ -39,6 +39,6 @@
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
     "vitest": "^3.0.9",
-    "wrangler": "^4.3.0"
+    "wrangler": "^4.27.0"
   }
 }
