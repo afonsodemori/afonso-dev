@@ -11,7 +11,7 @@
     "generate": "nuxt generate",
     "preview": "npm run build && wrangler dev --ip 0.0.0.0",
     "postinstall": "nuxt prepare",
-    "deploy:preview": "npm run build && wrangler versions upload --env=preview --preview-alias=preview",
+    "deploy:preview": "echo 'BUG' # npm run build && wrangler versions upload --env=preview --preview-alias=preview",
     "deploy:production": "npm run build:resume && npm run build && wrangler deploy --env=production",
     "cf-typegen": "wrangler types",
     "format:check": "prettier --check .",
