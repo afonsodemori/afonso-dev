@@ -13,6 +13,6 @@ After 15+ years as a backend **PHP developer**, I decided to learn **Node**, **T
 - **[Nuxt](https://nuxt.com/)** – Vue-based framework for SSR, static sites, and hybrid rendering
 - **[Nitro](https://nitro.unjs.io/)** – Server engine for zero-config, cross-platform deployments
 - **[Nuxt UI](https://ui.nuxt.com/)** – Tailwind CSS-based component library with dark mode, icons, and modularity
-- **[i18n](https://v8.i18n.nuxtjs.org/)** – Dynamic locale management and SEO-friendly translations
+- **[i18n](https://v9.i18n.nuxtjs.org/)** – Dynamic locale management and SEO-friendly translations
 - **[wrangler](https://developers.cloudflare.com/workers/wrangler/)** – Cloudflare Workers CLI for edge deployments and serverless functions
-- **[Cloudflare Pages](https://pages.cloudflare.com/)** – Fast, global static site hosting with automatic CI/CD
+- **[Cloudflare Workers](https://workers.cloudflare.com/)** – Serverless functions running at the edge for fast, scalable apps

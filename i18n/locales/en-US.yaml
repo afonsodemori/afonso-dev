@@ -5,7 +5,7 @@ head:
     keywords: afonso, mori, ayres, silva, demori, afonsodemori, afonsosilva89, web developer, php, typescript
   resume:
     title: 'Resume: Afonso de Mori - Software Engineer - Spain'
-    description: Learn about the professional career of Afonso de Mori, a programmer with more than 16 years of experience.
+    description: Learn about the professional career of Afonso de Mori, a programmer with more than 17 years of experience.
     keywords: resume, programmer, afonso, mori, ayres, silva, demori, afonsodemori, afonsosilva89
   contact:
     title: Let's talk! - Afonso de Mori
@@ -24,7 +24,7 @@ theme:
 
 index:
   title: Software Developer
-  bio: Software Engineer with over 16 years of experience in backend development. Specialized in PHP, Symfony, MySQL, and Doctrine. I have knowledge in DevOps and frontend, and I adapt easily to different environments and projects. Committed to continuous learning, innovation, and teamwork.
+  bio: Software Engineer with over 17 years of experience in backend development. Specialized in PHP, Symfony, MySQL, and Doctrine. I have knowledge in DevOps and frontend, and I adapt easily to different environments and projects. Committed to continuous learning, innovation, and teamwork.
 
 resume:
   languages: Languages
