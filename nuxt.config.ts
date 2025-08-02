@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['nitro-cloudflare-dev', '@nuxt/eslint', '@nuxtjs/i18n', '@nuxt/ui'],
+  modules: ['nitro-cloudflare-dev', '@nuxt/eslint', '@nuxtjs/i18n', '@nuxt/ui', '@nuxt/fonts'],
 
   css: ['~/assets/base.css'],
 
@@ -41,6 +41,13 @@ export default defineNuxtConfig({
     },
     compilation: { strictMessage: false, escapeHtml: false },
     bundle: { optimizeTranslationDirective: false },
+  },
+
+  fonts: {
+    defaults: {
+      // TODO: Shold be variable, but failing for some reason
+      weights: [200],
+    },
   },
 
   routeRules: {

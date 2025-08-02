@@ -19,6 +19,7 @@
     "lint:fix": "eslint . --fix --ignore-pattern 'worker-configuration.d.ts'"
   },
   "dependencies": {
+    "@nuxt/fonts": "^0.11.4",
     "@nuxt/ui": "^3.0.1",
     "@nuxtjs/i18n": "^9.3.3",
     "nuxt": "^4.0.2",
@@ -27,6 +28,9 @@
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@iconify-json/lucide": "^1.2.60",
+    "@iconify-json/mdi": "^1.2.3",
+    "@iconify-json/simple-icons": "^1.2.45",
     "@nuxt/eslint": "^1.2.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.11",
