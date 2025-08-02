@@ -19,6 +19,7 @@
     "lint:fix": "eslint . --fix --ignore-pattern 'worker-configuration.d.ts'"
   },
   "dependencies": {
+    "@nuxt/fonts": "^0.11.4",
     "@nuxt/ui": "^3.0.1",
     "@nuxtjs/i18n": "^9.3.3",
     "nuxt": "^4.0.2",
