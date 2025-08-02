@@ -18,14 +18,34 @@
     "preview": {
       "vars": {
         "NUXT_PUBLIC_NODE_ENV": "preview",
-        "NUXT_PUBLIC_HOST": "https://preview-afonso-dev.afonso.workers.dev",
+        "NUXT_PUBLIC_HOST": "https://preview.afonso.dev",
       },
+      "routes": [
+        {
+          "pattern": "preview.afonso.dev",
+          "custom_domain": true,
+        },
+        {
+          "pattern": "preview.afonsodemori.com",
+          "custom_domain": true,
+        },
+      ],
     },
     "production": {
       "vars": {
         "NUXT_PUBLIC_NODE_ENV": "production",
         "NUXT_PUBLIC_HOST": "https://afonso.dev",
       },
+      "routes": [
+        {
+          "pattern": "afonso.dev",
+          "custom_domain": true,
+        },
+        {
+          "pattern": "afonsodemori.com",
+          "custom_domain": true,
+        },
+      ],
     },
   },
 }

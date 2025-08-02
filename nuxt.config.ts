@@ -40,6 +40,7 @@ export default defineNuxtConfig({
       redirectOn: 'no prefix',
     },
     compilation: { strictMessage: false, escapeHtml: false },
+    bundle: { optimizeTranslationDirective: false },
   },
 
   routeRules: {
