@@ -43,6 +43,13 @@ export default defineNuxtConfig({
     bundle: { optimizeTranslationDirective: false },
   },
 
+  fonts: {
+    defaults: {
+      // TODO: Shold be variable, but failing for some reason
+      weights: [200],
+    },
+  },
+
   routeRules: {
     // Legacy
     '/cv': { redirect: { to: '/resume', statusCode: 308 } },

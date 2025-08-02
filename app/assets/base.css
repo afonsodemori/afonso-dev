@@ -1,14 +1,6 @@
 @import 'tailwindcss';
 @import '@nuxt/ui';
 
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 100 900;
-  src: url('/static/inter-variable.woff2') format('woff2');
-  font-display: swap;
-}
-
 body {
   font-family: 'Inter', sans-serif;
   font-weight: 400;
