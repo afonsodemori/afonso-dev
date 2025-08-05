@@ -107,8 +107,14 @@ export default defineNuxtConfig({
     '/wa': {
       redirect: { to: 'https://api.whatsapp.com/send/?phone=34602443854', statusCode: 308 },
     },
+    '/wa-br': {
+      redirect: { to: 'https://api.whatsapp.com/send/?phone=5528999815833', statusCode: 308 },
+    },
     '/whatsapp': {
       redirect: { to: 'https://api.whatsapp.com/send/?phone=34602443854', statusCode: 308 },
+    },
+    '/whatsapp-br': {
+      redirect: { to: 'https://api.whatsapp.com/send/?phone=5528999815833', statusCode: 308 },
     },
     '/duolingo': {
       redirect: { to: 'https://www.duolingo.com/profile/afonsodemori', statusCode: 308 },
