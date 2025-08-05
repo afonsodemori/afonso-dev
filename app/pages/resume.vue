@@ -310,6 +310,7 @@
 
   @media print {
     #page,
+    .dark #page,
     .containers {
       max-width: 100%;
       width: 100%;
