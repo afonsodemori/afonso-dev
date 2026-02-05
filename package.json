@@ -19,13 +19,13 @@
     "lint:fix": "eslint . --fix --ignore-pattern 'worker-configuration.d.ts'"
   },
   "dependencies": {
-    "@nuxt/fonts": "^0.11.4",
-    "@nuxt/ui": "^3.0.1",
-    "@nuxtjs/i18n": "^9.3.3",
+    "@nuxt/fonts": "^0.13.0",
+    "@nuxt/ui": "^4.4.0",
+    "@nuxtjs/i18n": "^10.2.1",
     "nuxt": "^4.0.2",
     "vue": "^3.5.13",
-    "vue-router": "^4.5.0",
-    "zod": "^3.24.2"
+    "vue-router": "^4.6.4",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@iconify-json/lucide": "^1.2.60",
@@ -33,11 +33,11 @@
     "@iconify-json/simple-icons": "^1.2.45",
     "@nuxt/eslint": "^1.2.0",
     "@types/jest": "^29.5.14",
-    "@types/node": "^22.13.11",
+    "@types/node": "^24.10.11",
     "@types/supertest": "^6.0.3",
     "eslint": "^9.22.0",
     "nitro-cloudflare-dev": "^0.2.2",
-    "prettier": "3.5.3",
+    "prettier": "^3.8.1",
     "supertest": "^7.1.0",
     "tsx": "^4.19.3",
     "typescript": "^5.8.2",
