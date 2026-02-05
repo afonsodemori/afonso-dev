@@ -44,7 +44,7 @@
     loading.value = true;
     try {
       const token = await grecaptcha.execute(siteKey, { action: 'submit' });
-      const res = await fetch('/contact/send', {
+      const res = await fetch('https://api.afonso.dev/send-email', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

@@ -16,7 +16,7 @@ class ImportResumes {
       { lang: 'pt', fileId: '1hWho1MfmHPZIXEARbHaZJydXULzVoTqSnMi0Z64dOq8' },
     ];
     // Formats to download
-    this.formats = ['pdf', 'docx', 'txt', 'odt', 'md'];
+    this.formats = ['txt', 'md'];
     // Public output path
     this.fileOutputPath = './public/docs/resume-{language}-afonso_de_mori.{format}';
   }

@@ -63,6 +63,52 @@ export default defineNuxtConfig({
     '/contact/en': { redirect: { to: '/en/contact', statusCode: 308 } },
     '/contact/es': { redirect: { to: '/es/contact', statusCode: 308 } },
     '/contact/pt': { redirect: { to: '/pt/contact', statusCode: 308 } },
+    // Static files for resumes
+    '/docs/resume-en-afonso_de_mori.pdf': {
+      redirect: { to: 'https://static.afonso.dev/resume-en-afonso_de_mori.pdf', statusCode: 308 },
+    },
+    '/docs/resume-es-afonso_de_mori.pdf': {
+      redirect: { to: 'https://static.afonso.dev/resume-es-afonso_de_mori.pdf', statusCode: 308 },
+    },
+    '/docs/resume-pt-afonso_de_mori.pdf': {
+      redirect: { to: 'https://static.afonso.dev/resume-pt-afonso_de_mori.pdf', statusCode: 308 },
+    },
+    '/docs/resume-en-afonso_de_mori.docx': {
+      redirect: { to: 'https://static.afonso.dev/resume-en-afonso_de_mori.docx', statusCode: 308 },
+    },
+    '/docs/resume-es-afonso_de_mori.docx': {
+      redirect: { to: 'https://static.afonso.dev/resume-es-afonso_de_mori.docx', statusCode: 308 },
+    },
+    '/docs/resume-pt-afonso_de_mori.docx': {
+      redirect: { to: 'https://static.afonso.dev/resume-pt-afonso_de_mori.docx', statusCode: 308 },
+    },
+    '/docs/resume-en-afonso_de_mori.odt': {
+      redirect: { to: 'https://static.afonso.dev/resume-en-afonso_de_mori.odt', statusCode: 308 },
+    },
+    '/docs/resume-es-afonso_de_mori.odt': {
+      redirect: { to: 'https://static.afonso.dev/resume-es-afonso_de_mori.odt', statusCode: 308 },
+    },
+    '/docs/resume-pt-afonso_de_mori.odt': {
+      redirect: { to: 'https://static.afonso.dev/resume-pt-afonso_de_mori.odt', statusCode: 308 },
+    },
+    '/docs/resume-en-afonso_de_mori.txt': {
+      redirect: { to: 'https://static.afonso.dev/resume-en-afonso_de_mori.txt', statusCode: 308 },
+    },
+    '/docs/resume-es-afonso_de_mori.txt': {
+      redirect: { to: 'https://static.afonso.dev/resume-es-afonso_de_mori.txt', statusCode: 308 },
+    },
+    '/docs/resume-pt-afonso_de_mori.txt': {
+      redirect: { to: 'https://static.afonso.dev/resume-pt-afonso_de_mori.txt', statusCode: 308 },
+    },
+    '/docs/resume-en-afonso_de_mori.md': {
+      redirect: { to: 'https://static.afonso.dev/resume-en-afonso_de_mori.md', statusCode: 308 },
+    },
+    '/docs/resume-es-afonso_de_mori.md': {
+      redirect: { to: 'https://static.afonso.dev/resume-es-afonso_de_mori.md', statusCode: 308 },
+    },
+    '/docs/resume-pt-afonso_de_mori.md': {
+      redirect: { to: 'https://static.afonso.dev/resume-pt-afonso_de_mori.md', statusCode: 308 },
+    },
     // Internal links
     '/support': { redirect: { to: '/contact', statusCode: 308 } },
     '/help': { redirect: { to: '/contact', statusCode: 308 } },
