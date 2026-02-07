@@ -1,14 +1,35 @@
 <script setup lang="ts">
-  import type { ContextMenuItem, DropdownMenuItem } from '@nuxt/ui';
+  import type { DropdownMenuItem } from '@nuxt/ui';
 
-  const { t, locale, setLocale } = useI18n();
+  const { t, locale, locales } = useI18n();
   const config = useRuntimeConfig();
-  const host = config.public.host;
+  const route = useRoute();
+  const host = config.public.websiteHost;
+
+  const alternates = locales.value.map((lang) => ({
+    rel: 'alternate',
+    hreflang: lang.code,
+    href: `${host}/${lang.code}${route.path.replace(`/${locale.value}`, '')}`,
+  }));
+
+  useHead({
+    htmlAttrs: {
+      lang: locale.value,
+    },
+    link: [{ rel: 'canonical', href: `${host}${route.path}` }, ...alternates],
+  });
 
   useSeoMeta({
+    title: t(`head.resume.title`),
+    description: t(`head.resume.description`),
+    ogTitle: t(`head.resume.title`),
+    ogDescription: t(`head.resume.description`),
     ogImage: `${host}/static/icons/og-resume-${locale.value}.png`,
     ogImageWidth: 1000,
     ogImageHeight: 667,
+    ogUrl: `${host}${route.path}`,
+    twitterTitle: t(`head.resume.title`),
+    twitterDescription: t(`head.resume.description`),
     twitterImage: `${host}/static/icons/og-resume-${locale.value}.png`,
     twitterCard: 'summary_large_image',
   });
@@ -31,7 +52,7 @@
     if (lastParagraph) {
       const emphasisElement = lastParagraph.querySelector<HTMLElement>('em');
       if (emphasisElement?.textContent) {
-        emphasisElement.textContent = emphasisElement.textContent.split(' — ')[0].trim();
+        emphasisElement.textContent = emphasisElement.textContent.split(' — ')[0]?.trim() || '';
       }
     }
   });
@@ -88,44 +109,6 @@
   const itemsFirstButton = createButtonItems('resume.first');
   const itemsSecondButton = createButtonItems('resume.second');
   const itemsThirdButton = createButtonItems('resume.third');
-
-  const contexMenuItems = computed<ContextMenuItem[][]>(() => [
-    [
-      {
-        label: t('resume.select_version'),
-        type: 'label',
-      },
-      ...itemsFirstButton.value[0].slice(0, 4), // Versions
-      {
-        type: 'separator',
-      },
-      itemsFirstButton.value[0][5], // Google Drive
-    ],
-    [
-      {
-        label: t('resume.print'),
-        icon: 'mdi-printer-outline',
-        onSelect: () => setTimeout(() => print(), 200),
-      },
-    ],
-    [
-      {
-        label: t('resume.languages'),
-        icon: 'i-lucide-earth',
-        children: [
-          { code: 'en', label: 'English' },
-          { code: 'es', label: 'Español' },
-          { code: 'pt', label: 'Português' },
-        ].map((lang) => ({
-          label: lang.label,
-          type: 'checkbox',
-          checked: locale.value === lang.code,
-          color: locale.value === lang.code ? 'success' : 'neutral',
-          onSelect: () => setLocale(lang.code as 'en' | 'es' | 'pt'),
-        })),
-      },
-    ],
-  ]);
 </script>
 
 <template>
@@ -158,10 +141,8 @@
         />
       </UDropdownMenu>
     </div>
-    <UContextMenu :items="contexMenuItems" external-icon="false">
-      <!-- eslint-disable-next-line vue/no-v-html -->
-      <div id="page" v-html="$t('resume.html')" />
-    </UContextMenu>
+    <!-- eslint-disable-next-line vue/no-v-html -->
+    <div id="page" v-html="$t('resume.html')" />
   </div>
 </template>
 

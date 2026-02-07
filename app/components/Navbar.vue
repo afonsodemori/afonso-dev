@@ -3,7 +3,6 @@
 
   const { locale, t, setLocale } = useI18n();
   const localePath = useLocalePath();
-  const colorMode = useColorMode();
 
   const items = computed<NavigationMenuItem[][]>(() => [
     [
@@ -48,13 +47,6 @@
           active: locale.value === lang.code,
           onSelect: () => setLocale(lang.code as 'en' | 'es' | 'pt'),
         })),
-      },
-      {
-        icon: colorMode.preference == 'light' ? 'i-lucide-sun' : 'i-lucide-moon',
-        onSelect: () =>
-          colorMode.preference == 'light'
-            ? (colorMode.preference = 'dark')
-            : (colorMode.preference = 'light'),
       },
     ],
   ]);

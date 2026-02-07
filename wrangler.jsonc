@@ -1,51 +1,22 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "afonso-dev",
-  "compatibility_date": "2025-08-01",
-  "main": "./.output/server/index.mjs",
+  "compatibility_date": "2026-02-05",
   "assets": {
-    "binding": "ASSETS",
-    "directory": "./.output/public/",
+    "directory": "./dist",
+    "not_found_handling": "404-page",
   },
-  "observability": {
-    "enabled": true,
-  },
-  "vars": {
-    "NUXT_PUBLIC_NODE_ENV": "development",
-    "NUXT_PUBLIC_HOST": "http://localhost:8787",
-  },
-  "env": {
-    "preview": {
-      "vars": {
-        "NUXT_PUBLIC_NODE_ENV": "preview",
-        "NUXT_PUBLIC_HOST": "https://preview.afonso.dev",
-      },
-      "routes": [
-        {
-          "pattern": "preview.afonso.dev",
-          "custom_domain": true,
-        },
-        {
-          "pattern": "preview.afonsodemori.com",
-          "custom_domain": true,
-        },
-      ],
+  "observability": { "enabled": true },
+  "compatibility_flags": ["nodejs_compat"],
+  "preview_urls": true,
+  "routes": [
+    {
+      "pattern": "afonso.dev",
+      "custom_domain": true,
     },
-    "production": {
-      "vars": {
-        "NUXT_PUBLIC_NODE_ENV": "production",
-        "NUXT_PUBLIC_HOST": "https://afonso.dev",
-      },
-      "routes": [
-        {
-          "pattern": "afonso.dev",
-          "custom_domain": true,
-        },
-        {
-          "pattern": "afonsodemori.com",
-          "custom_domain": true,
-        },
-      ],
+    {
+      "pattern": "afonsodemori.com",
+      "custom_domain": true,
     },
-  },
+  ],
 }

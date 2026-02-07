@@ -1,5 +1,38 @@
 <script setup lang="ts">
   definePageMeta({ layout: 'base' });
+
+  const { t, locale, locales } = useI18n();
+  const config = useRuntimeConfig();
+  const route = useRoute();
+  const host = config.public.websiteHost;
+
+  const alternates = locales.value.map((lang) => ({
+    rel: 'alternate',
+    hreflang: lang.code,
+    href: `${host}/${lang.code}${route.path.replace(`/${locale.value}`, '')}`,
+  }));
+
+  useHead({
+    htmlAttrs: {
+      lang: locale.value,
+    },
+    link: [{ rel: 'canonical', href: `${host}${route.path}` }, ...alternates],
+  });
+
+  useSeoMeta({
+    title: t(`head.index.title`),
+    description: t(`head.index.description`),
+    ogTitle: t(`head.index.title`),
+    ogDescription: t(`head.index.description`),
+    ogImage: `${host}/static/icons/og.png`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogUrl: `${host}${route.path}`,
+    twitterTitle: t(`head.index.title`),
+    twitterDescription: t(`head.index.description`),
+    twitterImage: `${host}/static/icons/og.png`,
+    twitterCard: 'summary',
+  });
 </script>
 
 <template>

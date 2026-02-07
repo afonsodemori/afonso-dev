@@ -2,40 +2,67 @@
   import * as z from 'zod';
   import type { FormSubmitEvent } from '@nuxt/ui';
 
-  const { t } = useI18n();
+  const { t, locale, locales } = useI18n();
   const config = useRuntimeConfig();
+  const route = useRoute();
 
   const isDevelopment = config.public.nodeEnv === 'development';
-  const siteKey = config.public.recaptchaSiteKey;
+  const host = config.public.websiteHost;
+  const apiBaseUrl = config.public.apiBaseUrl;
+  const turnstileKey = config.public.turnstileKey;
+
+  const alternates = locales.value.map((lang) => ({
+    rel: 'alternate',
+    hreflang: lang.code,
+    href: `${host}/${lang.code}${route.path.replace(`/${locale.value}`, '')}`,
+  }));
 
   useHead({
-    script: [
-      {
-        id: 'recaptcha-script',
-        src: `https://www.google.com/recaptcha/api.js?render=${siteKey}`,
-        async: true,
-        defer: true,
-      },
-    ],
+    link: [{ rel: 'canonical', href: `${host}${route.path}` }, ...alternates],
+  });
+
+  useSeoMeta({
+    title: t(`head.contact.title`),
+    description: t(`head.contact.description`),
+    ogTitle: t(`head.contact.title`),
+    ogDescription: t(`head.contact.description`),
+    ogImage: `${host}/static/icons/og.png`,
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    ogUrl: `${host}${route.path}`,
+    twitterTitle: t(`head.contact.title`),
+    twitterDescription: t(`head.contact.description`),
+    twitterImage: `${host}/static/icons/og.png`,
+    twitterCard: 'summary',
+  });
+
+  let widgetId: string | null = null;
+
+  onMounted(() => {
+    widgetId = turnstile.render('#turnstile-container', {
+      sitekey: turnstileKey,
+      theme: 'dark',
+      language: locale.value,
+    });
   });
 
   onBeforeUnmount(() => {
-    document.querySelector('.grecaptcha-badge')?.remove();
+    if (widgetId) turnstile.remove(widgetId);
   });
 
   const schema = z.object({
     name: z.string().nonempty(t('contact.form.required')),
-    email: z.string().email(t('contact.form.invalid_email')),
+    email: z.email(t('contact.form.invalid_email')),
     subject: z.string().nonempty(t('contact.form.required')),
     message: z.string().nonempty(t('contact.form.required')),
   });
 
   type Schema = z.output<typeof schema>;
   const state = reactive<Partial<Schema>>({
-    name: isDevelopment ? t('contact.form.sample.name') : undefined,
-    email: isDevelopment ? t('contact.form.sample.email') : undefined,
+    name: isDevelopment ? t('contact.form.sample.name') : '',
+    email: isDevelopment ? t('contact.form.sample.email') : '',
     subject: t('contact.form.sample.subject'),
-    message: isDevelopment ? t('contact.form.sample.message') : undefined,
+    message: isDevelopment ? t('contact.form.sample.message') : '',
   });
   const loading = ref(false);
 
@@ -43,8 +70,8 @@
   async function onSubmit(_event: FormSubmitEvent<Schema>) {
     loading.value = true;
     try {
-      const token = await grecaptcha.execute(siteKey, { action: 'submit' });
-      const res = await fetch('https://api.afonso.dev/send-email', {
+      const token = turnstile.getResponse(widgetId);
+      const res = await fetch(`${apiBaseUrl}/send-email`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -53,6 +80,7 @@
           subject: state.subject,
           message: state.message,
           token,
+          challenger: 'turnstile',
         }),
       });
 
@@ -104,6 +132,8 @@
           class="w-full"
         />
       </UFormField>
+
+      <div id="turnstile-container" />
 
       <UButton :disabled="loading" type="submit" class="py-2">
         {{ loading ? $t('contact.form.submitting') : $t('contact.form.submit') }}
