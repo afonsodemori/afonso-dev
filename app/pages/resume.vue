@@ -63,28 +63,28 @@
         {
           label: 'PDF',
           icon: 'mdi-file-pdf-outline',
-          to: `https://static.afonso.dev/resume-${t(`${localeKey}.locale`)}-afonso_de_mori.pdf`,
+          to: `https://static.afonso.dev/afonso-de-mori-cv-${t(`${localeKey}.locale`)}.pdf`,
           target: '_blank',
           kbds: ['.pdf'],
         },
         {
           label: 'Microsoft Word',
           icon: 'mdi-file-word-outline',
-          to: `https://static.afonso.dev/resume-${t(`${localeKey}.locale`)}-afonso_de_mori.docx`,
+          to: `https://static.afonso.dev/afonso-de-mori-cv-${t(`${localeKey}.locale`)}.docx`,
           target: '_blank',
           kbds: ['.docx'],
         },
         {
           label: 'Markdown',
           icon: 'mdi-file-text-outline',
-          to: `https://static.afonso.dev/resume-${t(`${localeKey}.locale`)}-afonso_de_mori.md`,
+          to: `https://static.afonso.dev/afonso-de-mori-cv-${t(`${localeKey}.locale`)}.md`,
           target: '_blank',
           kbds: ['.md'],
         },
         {
           label: t(`${localeKey}.formats.txt`),
           icon: 'mdi-file-text-outline',
-          to: `https://static.afonso.dev/resume-${t(`${localeKey}.locale`)}-afonso_de_mori.txt`,
+          to: `https://static.afonso.dev/afonso-de-mori-cv-${t(`${localeKey}.locale`)}.txt`,
           target: '_blank',
           kbds: ['.txt'],
         },
@@ -169,27 +169,6 @@
     padding-right: 1rem;
   }
 
-  /* Layout changers */
-  :deep(.contact-separator:first-of-type) {
-    display: block;
-    height: 2rem;
-  }
-
-  :deep(.contact-separator) {
-    display: none;
-  }
-
-  :deep(img:first-of-type) {
-    margin-left: 0;
-  }
-
-  :deep(img) {
-    display: inline-block;
-    margin-left: 1.25rem;
-    width: 12px;
-    height: 12px;
-  }
-
   /* Content formatting */
   :deep(a) {
     color: #155dfc;
@@ -206,19 +185,19 @@
     font-weight: 700;
   }
 
+  :deep(p:first-of-type) {
+    margin-bottom: 1.5rem;
+  }
+
   :deep(h2) {
     margin: 2rem 0 0.75rem 0;
-    font-size: 1.6rem;
+    font-size: 1.3rem;
   }
 
   :deep(strong),
   :deep(h2 strong),
   :deep(h3 strong) {
     font-weight: 600;
-  }
-
-  :deep(h4) {
-    opacity: 0.55;
   }
 
   :deep(ul) {
@@ -243,17 +222,6 @@
     color: #51a2ff;
   }
 
-  .dark #page :deep(img) {
-    opacity: 0.75;
-    filter: invert(1);
-  }
-
-  @media screen and (max-width: 850px) {
-    :deep(img) {
-      margin-left: 0.75rem;
-    }
-  }
-
   @media screen and (max-width: 800px) {
     #page {
       padding: 2rem 1rem;
@@ -272,15 +240,6 @@
 
     .containers {
       padding: 0;
-    }
-
-    :deep(.contact-separator) {
-      display: block;
-      height: 0.75rem;
-    }
-
-    :deep(img) {
-      margin-left: 0;
     }
 
     :deep(ul) {
@@ -319,10 +278,6 @@
     :deep(ul) {
       margin-top: 0.5rem;
       margin-bottom: 1.5rem;
-    }
-
-    :deep(.contact-separator:first-of-type) {
-      height: 10pt;
     }
   }
 </style>

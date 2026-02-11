@@ -5,48 +5,32 @@ if ! command -v pandoc &> /dev/null; then
   exit 1
 fi
 
-input=(
-  "public/docs/resume-en-afonso_de_mori.original.md"
-  "public/docs/resume-es-afonso_de_mori.original.md"
-  "public/docs/resume-pt-afonso_de_mori.original.md"
+markdown_urls=(
+  "https://static.afonso.dev/afonso-de-mori-cv-en.md"
+  "https://static.afonso.dev/afonso-de-mori-cv-es.md"
+  "https://static.afonso.dev/afonso-de-mori-cv-pt.md"
 )
 
-for file in "${input[@]}"; do
-  if [ ! -f "$file" ]; then
-    echo "Error: File $file does not exist. Run 'npm run build:resume-import' to generate it."
-    exit 1
-  fi
-done
+for markdown_url in "${markdown_urls[@]}"; do
+  filename=$(basename $markdown_url)
+  filepath=/tmp/$filename
 
-for input_md in "${input[@]}"; do
-  lang=$(echo "$input_md" | cut -d'-' -f2) # Extracts "en", "es", "pt"
-
-  output_html=$(echo "$input_md" | sed 's/\.original.md/.html/')
+  [[ $markdown_url =~ afonso-de-mori-cv-([a-z]{2})\.md ]] && lang="${BASH_REMATCH[1]}"
   output_yaml="./i18n/locales/generated/$lang-resume.yaml"
+  output_html=$filepath.html
 
-  pandoc "$input_md" -o "$output_html"
-  echo "Converted $input_md -> $output_html"
+  curl $markdown_url -so $filepath
+  pandoc $filepath -o $output_html
+  echo "Converted $filename -> $output_html"
 
-  echo "Make it pretty..."
-  npx prettier \
-    --log-level=error \
-    --no-config \
-    --parser=html \
-    --ignore-path \
-    --print-width=2000 \
-    --html-whitespace-sensitivity=css \
-    --write "$output_html"
-
-  # Generate YAML
   echo "Generate $output_yaml"
   {
     echo "resume:"
     echo "  html: |"
-    sed "s/@/{'@'}/g; s/|/{'|'}/g; s/^/    /" "$output_html" | # Replace @, | and indent lines
-    sed 's/<img /<span class="contact-separator"><\/span><img /ig'
-  } > "$output_yaml"
+    sed "s/@/{'@'}/g; s/|/{'|'}/g; s/^/    /" "$output_html" # Replace @, | and indent lines
+  } > $output_yaml
 
-  rm "$input_md"
+  rm $filepath $output_html
 
   echo
 done

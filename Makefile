@@ -12,9 +12,7 @@ dev: build
 	npx nuxt dev
 
 import-resume:
-	npx tsx bin/resume-import.ts
 	bash bin/resume-html.sh
-	rm public/docs/resume*
 
 generate: import-resume
 	npx nuxt generate
