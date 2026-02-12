@@ -1,36 +1,26 @@
 #!/bin/bash
 
-if ! command -v pandoc &> /dev/null; then
-  echo "Error: pandoc is not installed. Please install it and try again."
-  exit 1
-fi
-
-markdown_urls=(
-  "https://static.afonso.dev/afonso-de-mori-cv-en.md"
-  "https://static.afonso.dev/afonso-de-mori-cv-es.md"
-  "https://static.afonso.dev/afonso-de-mori-cv-pt.md"
+html_urls=(
+  "https://static.afonso.dev/afonso-de-mori-cv-en.html"
+  "https://static.afonso.dev/afonso-de-mori-cv-es.html"
+  "https://static.afonso.dev/afonso-de-mori-cv-pt.html"
 )
 
-for markdown_url in "${markdown_urls[@]}"; do
-  filename=$(basename $markdown_url)
-  filepath=/tmp/$filename
+for html_url in "${html_urls[@]}"; do
+  filename=$(basename $html_url)
+  html_local_path=/tmp/$filename
 
-  [[ $markdown_url =~ afonso-de-mori-cv-([a-z]{2})\.md ]] && lang="${BASH_REMATCH[1]}"
+  [[ $html_url =~ afonso-de-mori-cv-([a-z]{2})\.html ]] && lang="${BASH_REMATCH[1]}"
   output_yaml="./i18n/locales/generated/$lang-resume.yaml"
-  output_html=$filepath.html
 
-  curl $markdown_url -so $filepath
-  pandoc $filepath -o $output_html
-  echo "Converted $filename -> $output_html"
+  curl $html_url -so $html_local_path
 
   echo "Generate $output_yaml"
   {
     echo "resume:"
     echo "  html: |"
-    sed "s/@/{'@'}/g; s/|/{'|'}/g; s/^/    /" "$output_html" # Replace @, | and indent lines
+    sed "s/@/{'@'}/g; s/|/{'|'}/g; s/^/    /" "$html_local_path" # Replace @, | and indent lines
   } > $output_yaml
 
-  rm $filepath $output_html
-
-  echo
+  rm $html_local_path
 done
