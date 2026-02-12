@@ -5,7 +5,7 @@
   "scripts": {
     "prebuild": "bash bin/prebuild.sh",
     "build": "npm run prebuild && nuxt build",
-    "build:resume": "tsx bin/resume-import.ts && bash bin/resume-html.sh && rm public/docs/resume*",
+    "build:resume": "bash bin/resume-html.sh",
     "dev": "nuxt dev",
     "dev:public": "nuxt dev --public",
     "preview": "npm run build:resume && npm run build && wrangler dev --ip 0.0.0.0",
