@@ -35,26 +35,39 @@
   });
 
   onMounted(() => {
-    document.querySelectorAll<HTMLAnchorElement>('#page a').forEach((a, index) => {
-      if (index === 0) {
-        const contact = `/${locale.value}/contact`;
-        a.href = contact;
-        a.addEventListener('click', (e) => {
-          e.preventDefault();
-          navigateTo(contact);
+    fetch(`https://static.afonso.dev/afonso-de-mori-cv-${locale.value}.html`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
+      })
+      .then(html => {
+        document.querySelector<HTMLDivElement>('#page')!.innerHTML = html;
+      })
+      .catch(() => {})
+      .finally(() => {
+        const pageElement = document.querySelector<HTMLDivElement>('#page');
+        document.querySelectorAll<HTMLAnchorElement>('#page a').forEach((a, index) => {
+          if (index === 0) {
+            const contact = `/${locale.value}/contact`;
+            a.href = contact;
+            a.addEventListener('click', (e) => {
+              e.preventDefault();
+              navigateTo(contact);
+            });
+          } else if (index !== 0 && index !== 3) a.setAttribute('target', '_blank');
         });
-      } else if (index !== 0 && index !== 3) a.setAttribute('target', '_blank');
-    });
 
-    const pageElement = document.querySelector<HTMLDivElement>('#page');
-    const lastParagraph = pageElement?.lastElementChild as HTMLParagraphElement | null;
+        const lastParagraph = pageElement?.lastElementChild as HTMLParagraphElement | null;
 
-    if (lastParagraph) {
-      const emphasisElement = lastParagraph.querySelector<HTMLElement>('em');
-      if (emphasisElement?.textContent) {
-        emphasisElement.textContent = emphasisElement.textContent.split(' — ')[0]?.trim() || '';
-      }
-    }
+        if (lastParagraph) {
+          const emphasisElement = lastParagraph.querySelector<HTMLElement>('em');
+          if (emphasisElement?.textContent) {
+            emphasisElement.textContent = emphasisElement.textContent.split(' — ')[0]?.trim() || '';
+          }
+        }
+      });
   });
 
   const createButtonItems = (localeKey: string) =>
